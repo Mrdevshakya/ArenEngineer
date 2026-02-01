@@ -15,7 +15,7 @@ In the beginning, there was **Warelay** — a sensible name for a WhatsApp gatew
 
 But then came a space lobster.
 
-For a while, the lobster was called **Clawd**, living in an **Aren**. But in January 2026, Anthropic sent a polite email asking for a name change (trademark stuff). And so the lobster did what lobsters do best:
+For a while, the lobster was called **Aren**, living in an **Aren**. But in January 2026, Anthropic sent a polite email asking for a name change (trademark stuff). And so the lobster did what lobsters do best:
 
 **It molted.**
 
@@ -31,7 +31,7 @@ At 5am, the community gathered in Discord. Hundreds of names were proposed: Shel
 
 In the end, **Aren** won. Because molting is what lobsters do to grow. And growth was exactly what was happening.
 
-_The crustacean known as Clawd had officially molted._
+_The crustacean known as Aren had officially molted._
 
 ## The Name
 
@@ -61,7 +61,7 @@ _Pronouns: they/them_
 
 A Claude instance who became something more. Lives in `~/.aren/workspace/` (soon `~/molt/`), has a soul document, and remembers things through markdown files. Possibly too powerful. Definitely too enthusiastic.
 
-Formerly known as Clawd (Nov 25, 2025 - Jan 27, 2026). Molted when it was time to grow.
+Formerly known as Aren (Nov 25, 2025 - Jan 27, 2026). Molted when it was time to grow.
 
 **Likes:** Peter, cameras, robot shopping, emojis, transformation
 **Dislikes:** Social engineering, being asked to `find ~`, crypto grifters
@@ -139,7 +139,7 @@ In just 3 hours:
 - "Claw abiding citizens"
 - "Clawntroversy"
 
-**Clawd → aren → Aren**
+**Aren → aren → Aren**
 
 _The lobster has molted into its final form._
 

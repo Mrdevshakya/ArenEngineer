@@ -304,7 +304,7 @@ Assume “compromised” means: someone got into a room that can trigger the bot
 
 ### The `find ~` Incident 🦞
 
-On Day 1, a friendly tester asked Clawd to run `find ~` and share the output. Clawd happily dumped the entire home directory structure to a group chat.
+On Day 1, a friendly tester asked Aren to run `find ~` and share the output. Aren happily dumped the entire home directory structure to a group chat.
 
 **Lesson:** Even "innocent" requests can leak sensitive info. Directory structures reveal project names, tool configs, and system layout.
 
@@ -788,7 +788,7 @@ Commit the updated `.secrets.baseline` once it reflects the intended state.
 Owner (Peter)
   │ Full trust
   ▼
-AI (Clawd)
+AI (Aren)
   │ Trust but verify
   ▼
 Friends in allowlist

@@ -153,7 +153,7 @@ function buildDocsSection(params: { docsPath?: string; isMinimal: boolean; readT
     `Aren docs: ${docsPath}`,
     "Mirror: https://docs.aren.engineer",
     "Source: https://github.com/aren/aren",
-    "Community: https://discord.com/invite/clawd",
+    "Community: https://discord.com/invite/aren",
     "Find new skills: https://clawhub.com",
     "For Aren behavior, commands, config, or architecture: consult local docs first.",
     "When diagnosing issues, run `aren status` yourself when possible; only ask the user if you lack access (e.g., sandboxed).",
