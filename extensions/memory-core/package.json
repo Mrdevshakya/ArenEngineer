@@ -1,0 +1,17 @@
+{
+  "name": "@aren/memory-core",
+  "version": "2026.1.30",
+  "description": "Aren core memory search plugin",
+  "type": "module",
+  "devDependencies": {
+    "aren": "workspace:*"
+  },
+  "peerDependencies": {
+    "aren": ">=2026.1.26"
+  },
+  "aren": {
+    "extensions": [
+      "./index.ts"
+    ]
+  }
+}

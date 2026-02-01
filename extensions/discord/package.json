@@ -1,0 +1,14 @@
+{
+  "name": "@aren/discord",
+  "version": "2026.1.30",
+  "description": "Aren Discord channel plugin",
+  "type": "module",
+  "devDependencies": {
+    "aren": "workspace:*"
+  },
+  "aren": {
+    "extensions": [
+      "./index.ts"
+    ]
+  }
+}

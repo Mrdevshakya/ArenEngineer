@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: aren
+    runtime: docker
+    plan: starter
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: "8080"
+      - key: SETUP_PASSWORD
+        sync: false
+      - key: AREN_STATE_DIR
+        value: /data/.aren
+      - key: AREN_WORKSPACE_DIR
+        value: /data/workspace
+      - key: AREN_GATEWAY_TOKEN
+        generateValue: true
+    disk:
+      name: aren-data
+      mountPath: /data
+      sizeGB: 1

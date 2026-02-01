@@ -1,0 +1,14 @@
+{
+  "name": "@aren/copilot-proxy",
+  "version": "2026.1.30",
+  "description": "Aren Copilot Proxy provider plugin",
+  "type": "module",
+  "devDependencies": {
+    "aren": "workspace:*"
+  },
+  "aren": {
+    "extensions": [
+      "./index.ts"
+    ]
+  }
+}

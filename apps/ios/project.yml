@@ -1,0 +1,134 @@
+name: Aren
+options:
+  bundleIdPrefix: ai.aren
+  deploymentTarget:
+    iOS: "18.0"
+  xcodeVersion: "16.0"
+
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+
+packages:
+  ArenKit:
+    path: ../shared/ArenKit
+  Swabble:
+    path: ../../Swabble
+
+schemes:
+  Aren:
+    shared: true
+    build:
+      targets:
+        Aren: all
+    test:
+      targets:
+        - ArenTests
+
+targets:
+  Aren:
+    type: application
+    platform: iOS
+    sources:
+      - path: Sources
+    dependencies:
+      - package: ArenKit
+      - package: ArenKit
+        product: ArenChatUI
+      - package: ArenKit
+        product: ArenProtocol
+      - package: Swabble
+        product: SwabbleKit
+      - sdk: AppIntents.framework
+    preBuildScripts:
+      - name: SwiftFormat (lint)
+        basedOnDependencyAnalysis: false
+        inputFileLists:
+          - $(SRCROOT)/SwiftSources.input.xcfilelist
+        script: |
+          set -euo pipefail
+          export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+          if ! command -v swiftformat >/dev/null 2>&1; then
+            echo "error: swiftformat not found (brew install swiftformat)" >&2
+            exit 1
+          fi
+          swiftformat --lint --config "$SRCROOT/../../.swiftformat" \
+            --filelist "$SRCROOT/SwiftSources.input.xcfilelist"
+      - name: SwiftLint
+        basedOnDependencyAnalysis: false
+        inputFileLists:
+          - $(SRCROOT)/SwiftSources.input.xcfilelist
+        script: |
+          set -euo pipefail
+          export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+          if ! command -v swiftlint >/dev/null 2>&1; then
+            echo "error: swiftlint not found (brew install swiftlint)" >&2
+            exit 1
+          fi
+          swiftlint lint --config "$SRCROOT/.swiftlint.yml" --use-script-input-file-lists
+    settings:
+      base:
+        CODE_SIGN_IDENTITY: "Apple Development"
+        CODE_SIGN_STYLE: Manual
+        DEVELOPMENT_TEAM: Y5PE65HELJ
+        PRODUCT_BUNDLE_IDENTIFIER: ai.aren.ios
+        PROVISIONING_PROFILE_SPECIFIER: "ai.aren.ios Development"
+        SWIFT_VERSION: "6.0"
+        SWIFT_STRICT_CONCURRENCY: complete
+        ENABLE_APPINTENTS_METADATA: NO
+    info:
+      path: Sources/Info.plist
+      properties:
+        CFBundleDisplayName: Aren
+        CFBundleIconName: AppIcon
+        CFBundleShortVersionString: "2026.1.27-beta.1"
+        CFBundleVersion: "20260126"
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        UIBackgroundModes:
+          - audio
+        NSLocalNetworkUsageDescription: Aren discovers and connects to your Aren gateway on the local network.
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoadsInWebContent: true
+        NSBonjourServices:
+          - _aren-gw._tcp
+        NSCameraUsageDescription: Aren can capture photos or short video clips when requested via the gateway.
+        NSLocationWhenInUseUsageDescription: Aren uses your location when you allow location sharing.
+        NSLocationAlwaysAndWhenInUseUsageDescription: Aren can share your location in the background when you enable Always.
+        NSMicrophoneUsageDescription: Aren needs microphone access for voice wake.
+        NSSpeechRecognitionUsageDescription: Aren uses on-device speech recognition for voice wake.
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+
+  ArenTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Tests
+    dependencies:
+      - target: Aren
+      - package: Swabble
+        product: SwabbleKit
+      - sdk: AppIntents.framework
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: ai.aren.ios.tests
+        SWIFT_VERSION: "6.0"
+        SWIFT_STRICT_CONCURRENCY: complete
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/Aren.app/Aren"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+    info:
+      path: Tests/Info.plist
+      properties:
+        CFBundleDisplayName: ArenTests
+        CFBundleShortVersionString: "2026.1.27-beta.1"
+        CFBundleVersion: "20260126"

@@ -1,0 +1,14 @@
+{
+  "name": "@aren/llm-task",
+  "version": "2026.1.30",
+  "description": "Aren JSON-only LLM task plugin",
+  "type": "module",
+  "devDependencies": {
+    "aren": "workspace:*"
+  },
+  "aren": {
+    "extensions": [
+      "./index.ts"
+    ]
+  }
+}
