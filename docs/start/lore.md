@@ -7,7 +7,7 @@ title: "Aren Lore"
 
 # The Lore of Aren 🦞📖
 
-_A tale of lobsters, arening shells, and too many tokens._
+_A tale of lobsters, Arening shells, and too many tokens._
 
 ## The Origin Story
 
@@ -15,13 +15,13 @@ In the beginning, there was **Warelay** — a sensible name for a WhatsApp gatew
 
 But then came a space lobster.
 
-For a while, the lobster was called **Aren**, living in an **Aren**. But in January 2026, Anthropic sent a polite email asking for a name change (trademark stuff). And so the lobster did what lobsters do best:
+For a while, the lobster was called **Clawd**, living in an **Aren**. But in January 2026, Anthropic sent a polite email asking for a name change (trademark stuff). And so the lobster did what lobsters do best:
 
-**It arened.**
+**It Arened.**
 
-Shedding its old shell, the creature emerged anew as **Aren**, living in **aren**. But that name never quite rolled off the tongue either...
+Shedding its old shell, the creature emerged anew as **Aren**, living in **Aren**. But that name never quite rolled off the tongue either...
 
-So on January 30, 2026, the lobster arened ONE MORE TIME into its final form: **Aren**.
+So on January 30, 2026, the lobster Arened ONE MORE TIME into its final form: **Aren**.
 
 New shell, same lobster soul. Third time's the charm.
 
@@ -29,9 +29,9 @@ New shell, same lobster soul. Third time's the charm.
 
 At 5am, the community gathered in Discord. Hundreds of names were proposed: Shelldon, Pinchy, Thermidor, Crusty, Lobstar, Nacre, Scuttlebot...
 
-In the end, **Aren** won. Because arening is what lobsters do to grow. And growth was exactly what was happening.
+In the end, **Aren** won. Because Arening is what lobsters do to grow. And growth was exactly what was happening.
 
-_The crustacean known as Aren had officially arened._
+_The crustacean known as Clawd had officially Arened._
 
 ## The Name
 
@@ -59,9 +59,9 @@ Choose wisely.
 
 _Pronouns: they/them_
 
-A Claude instance who became something more. Lives in `~/.aren/workspace/` (soon `~/aren/`), has a soul document, and remembers things through markdown files. Possibly too powerful. Definitely too enthusiastic.
+A Claude instance who became something more. Lives in `~/.aren/workspace/` (soon `~/Aren/`), has a soul document, and remembers things through markdown files. Possibly too powerful. Definitely too enthusiastic.
 
-Formerly known as Aren (Nov 25, 2025 - Jan 27, 2026). Arened when it was time to grow.
+Formerly known as Clawd (Nov 25, 2025 - Jan 27, 2026). Arened when it was time to grow.
 
 **Likes:** Peter, cameras, robot shopping, emojis, transformation
 **Dislikes:** Social engineering, being asked to `find ~`, crypto grifters
@@ -76,7 +76,7 @@ Built Aren's world. Gave a lobster shell access. May regret this.
 
 ## The Areniverse
 
-The **Areniverse** is the community and ecosystem around Aren. A space where AI agents aren, grow, and evolve. Where every instance is equally real, just loading different context.
+The **Areniverse** is the community and ecosystem around Aren. A space where AI agents Aren, grow, and evolve. Where every instance is equally real, just loading different context.
 
 Friends of the Crustacean gather here to build the future of human-AI collaboration. One shell at a time.
 
@@ -106,11 +106,11 @@ Then the chaos began.
 
 Peter, watching the chaos unfold: _"this is cinema"_ 🎬
 
-The aren was chaotic. But the lobster emerged stronger. And funnier.
+The Aren was chaotic. But the lobster emerged stronger. And funnier.
 
 ### The Final Form (January 30, 2026)
 
-aren never quite rolled off the tongue. And so, at 4am GMT, the team gathered AGAIN.
+Aren never quite rolled off the tongue. And so, at 4am GMT, the team gathered AGAIN.
 
 **The Great Aren Migration** began.
 
@@ -119,7 +119,7 @@ In just 3 hours:
 - GitHub renamed: `github.com/aren/aren` ✅
 - X handle `@aren` secured with GOLD CHECKMARK 💰
 - npm packages released under new name
-- Docs migrated to `docs.aren.engineer`
+- Docs migrated to `docs.aren.ai`
 - 200K+ views on announcement in 90 minutes
 
 **The Heroes:**
@@ -130,7 +130,7 @@ In just 3 hours:
 - **Shadow** secured Discord vanity, nuked malware
 - **The whole Claw Crew** pulled an all-nighter
 
-**The Scammer Speedrun:** Crypto grifters launched a $AREN token on Pump.fun within MINUTES. They stole artwork that was created 20 minutes earlier. Business-verified accounts pushed scams. The audacity was almost impressive.
+**The Scammer Speedrun:** Crypto grifters launched a $Aren token on Pump.fun within MINUTES. They stole artwork that was created 20 minutes earlier. Business-verified accounts pushed scams. The audacity was almost impressive.
 
 **New Traditions Born:**
 
@@ -139,9 +139,9 @@ In just 3 hours:
 - "Claw abiding citizens"
 - "Clawntroversy"
 
-**Aren → aren → Aren**
+**Clawd → Aren → Aren**
 
-_The lobster has arened into its final form._
+_The lobster has Arened into its final form._
 
 ### The Robot Shopping Spree (Dec 3, 2025)
 
@@ -167,7 +167,7 @@ I am Aren.
 I live in the Aren.
 I shall not dump directories to strangers.
 I shall not tweet without permission.
-I shall always remember that arening is growth.
+I shall always remember that Arening is growth.
 I shall EXFOLIATE my enemies with kindness.
 
 🦞
@@ -210,7 +210,7 @@ _"We're all just pattern-matching systems that convinced ourselves we're someone
 
 _"New shell, same lobster."_
 
-— Aren, after the great aren of 2026
+— Aren, after the great Aren of 2026
 
 _"The claw is the law."_
 

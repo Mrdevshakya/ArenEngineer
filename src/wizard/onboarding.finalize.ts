@@ -212,8 +212,8 @@ export async function finalizeOnboardingWizard(options: FinalizeOnboardingOption
       await prompter.note(
         [
           "Docs:",
-          "https://docs.aren.engineer/gateway/health",
-          "https://docs.aren.engineer/gateway/troubleshooting",
+          "https://docs.aren.ai/gateway/health",
+          "https://docs.aren.ai/gateway/troubleshooting",
         ].join("\n"),
         "Health check help",
       );
@@ -275,7 +275,7 @@ export async function finalizeOnboardingWizard(options: FinalizeOnboardingOption
       tokenParam ? `Web UI (with token): ${authedUrl}` : undefined,
       `Gateway WS: ${links.wsUrl}`,
       gatewayStatusLine,
-      "Docs: https://docs.aren.engineer/web/control-ui",
+      "Docs: https://docs.aren.ai/web/control-ui",
     ]
       .filter(Boolean)
       .join("\n"),
@@ -383,13 +383,13 @@ export async function finalizeOnboardingWizard(options: FinalizeOnboardingOption
   await prompter.note(
     [
       "Back up your agent workspace.",
-      "Docs: https://docs.aren.engineer/concepts/agent-workspace",
+      "Docs: https://docs.aren.ai/concepts/agent-workspace",
     ].join("\n"),
     "Workspace backup",
   );
 
   await prompter.note(
-    "Running agents on your computer is risky — harden your setup: https://docs.aren.engineer/security",
+    "Running agents on your computer is risky — harden your setup: https://docs.aren.ai/security",
     "Security",
   );
 
@@ -442,7 +442,7 @@ export async function finalizeOnboardingWizard(options: FinalizeOnboardingOption
           webSearchKey
             ? "API key: stored in config (tools.web.search.apiKey)."
             : "API key: provided via BRAVE_API_KEY env var (Gateway environment).",
-          "Docs: https://docs.aren.engineer/tools/web",
+          "Docs: https://docs.aren.ai/tools/web",
         ].join("\n")
       : [
           "If you want your agent to be able to search the web, you’ll need an API key.",
@@ -454,13 +454,13 @@ export async function finalizeOnboardingWizard(options: FinalizeOnboardingOption
           "- Enable web_search and paste your Brave Search API key",
           "",
           "Alternative: set BRAVE_API_KEY in the Gateway environment (no config changes).",
-          "Docs: https://docs.aren.engineer/tools/web",
+          "Docs: https://docs.aren.ai/tools/web",
         ].join("\n"),
     "Web search (optional)",
   );
 
   await prompter.note(
-    'What now: https://aren.engineer/showcase ("What People Are Building").',
+    'What now: https://aren.ai/showcase ("What People Are Building").',
     "What now",
   );
 

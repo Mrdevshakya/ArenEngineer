@@ -541,13 +541,13 @@ upgrades in place and rewrites the gateway service to point at the new install.
 Switch **to git install**:
 
 ```bash
-curl -fsSL https://aren.engineer/install.sh | bash -s -- --install-method git --no-onboard
+curl -fsSL https://aren.ai/install.sh | bash -s -- --install-method git --no-onboard
 ```
 
 Switch **to npm global**:
 
 ```bash
-curl -fsSL https://aren.engineer/install.sh | bash
+curl -fsSL https://aren.ai/install.sh | bash
 ```
 
 Notes:
@@ -623,7 +623,7 @@ If the app disappears or shows "Abort trap 6" when you click "Allow" on a privac
 **Fix 1: Reset TCC Cache**
 
 ```bash
-tccutil reset All bot.aren.mac.debug
+tccutil reset All arent.mac.debug
 ```
 
 **Fix 2: Force New Bundle ID**
@@ -639,7 +639,7 @@ If the gateway is supervised by launchd, killing the PID will just respawn it. S
 ```bash
 aren gateway status
 aren gateway stop
-# Or: launchctl bootout gui/$UID/bot.aren.gateway (replace with bot.aren.<profile>; legacy com.aren.* still works)
+# Or: launchctl bootout gui/$UID/arent.gateway (replace with arent.<profile>; legacy bot.aren.* still works)
 ```
 
 **Fix 2: Port is busy (find the listener)**

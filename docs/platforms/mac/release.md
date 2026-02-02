@@ -33,33 +33,33 @@ Notes:
 ```bash
 # From repo root; set release IDs so Sparkle feed is enabled.
 # APP_BUILD must be numeric + monotonic for Sparkle compare.
-BUNDLE_ID=bot.aren.mac \
-APP_VERSION=2026.1.27-beta.1 \
+BUNDLE_ID=arent.mac \
+APP_VERSION=2026.2.1 \
 APP_BUILD="$(git rev-list --count HEAD)" \
 BUILD_CONFIG=release \
 SIGN_IDENTITY="Developer ID Application: <Developer Name> (<TEAMID>)" \
 scripts/package-mac-app.sh
 
 # Zip for distribution (includes resource forks for Sparkle delta support)
-ditto -c -k --sequesterRsrc --keepParent dist/Aren.app dist/Aren-2026.1.27-beta.1.zip
+ditto -c -k --sequesterRsrc --keepParent dist/Aren.app dist/Aren-2026.2.1.zip
 
 # Optional: also build a styled DMG for humans (drag to /Applications)
-scripts/create-dmg.sh dist/Aren.app dist/Aren-2026.1.27-beta.1.dmg
+scripts/create-dmg.sh dist/Aren.app dist/Aren-2026.2.1.dmg
 
 # Recommended: build + notarize/staple zip + DMG
 # First, create a keychain profile once:
 #   xcrun notarytool store-credentials "aren-notary" \
 #     --apple-id "<apple-id>" --team-id "<team-id>" --password "<app-specific-password>"
 NOTARIZE=1 NOTARYTOOL_PROFILE=aren-notary \
-BUNDLE_ID=bot.aren.mac \
-APP_VERSION=2026.1.27-beta.1 \
+BUNDLE_ID=arent.mac \
+APP_VERSION=2026.2.1 \
 APP_BUILD="$(git rev-list --count HEAD)" \
 BUILD_CONFIG=release \
 SIGN_IDENTITY="Developer ID Application: <Developer Name> (<TEAMID>)" \
 scripts/package-mac-dist.sh
 
 # Optional: ship dSYM alongside the release
-ditto -c -k --keepParent apps/macos/.build/release/Aren.app.dSYM dist/Aren-2026.1.27-beta.1.dSYM.zip
+ditto -c -k --keepParent apps/macos/.build/release/Aren.app.dSYM dist/Aren-2026.2.1.dSYM.zip
 ```
 
 ## Appcast entry
@@ -67,7 +67,7 @@ ditto -c -k --keepParent apps/macos/.build/release/Aren.app.dSYM dist/Aren-2026.
 Use the release note generator so Sparkle renders formatted HTML notes:
 
 ```bash
-SPARKLE_PRIVATE_KEY_FILE=/path/to/ed25519-private-key scripts/make_appcast.sh dist/Aren-2026.1.27-beta.1.zip https://raw.githubusercontent.com/aren/aren/main/appcast.xml
+SPARKLE_PRIVATE_KEY_FILE=/path/to/ed25519-private-key scripts/make_appcast.sh dist/Aren-2026.2.1.zip https://raw.githubusercontent.com/aren/aren/main/appcast.xml
 ```
 
 Generates HTML release notes from `CHANGELOG.md` (via [`scripts/changelog-to-html.sh`](https://github.com/aren/aren/blob/main/scripts/changelog-to-html.sh)) and embeds them in the appcast entry.
@@ -75,7 +75,7 @@ Commit the updated `appcast.xml` alongside the release assets (zip + dSYM) when 
 
 ## Publish & verify
 
-- Upload `Aren-2026.1.27-beta.1.zip` (and `Aren-2026.1.27-beta.1.dSYM.zip`) to the GitHub release for tag `v2026.1.27-beta.1`.
+- Upload `Aren-2026.2.1.zip` (and `Aren-2026.2.1.dSYM.zip`) to the GitHub release for tag `v2026.2.1`.
 - Ensure the raw appcast URL matches the baked feed: `https://raw.githubusercontent.com/aren/aren/main/appcast.xml`.
 - Sanity checks:
   - `curl -I https://raw.githubusercontent.com/aren/aren/main/appcast.xml` returns 200.

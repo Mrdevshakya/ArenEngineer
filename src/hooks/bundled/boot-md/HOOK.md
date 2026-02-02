@@ -1,7 +1,7 @@
 ---
 name: boot-md
 description: "Run BOOT.md on gateway startup"
-homepage: https://docs.aren.engineer/hooks#boot-md
+homepage: https://docs.aren.ai/hooks#boot-md
 metadata:
   {
     "aren":

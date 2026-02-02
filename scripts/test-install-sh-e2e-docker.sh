@@ -3,7 +3,7 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 IMAGE_NAME="${AREN_INSTALL_E2E_IMAGE:-${AREN_INSTALL_E2E_IMAGE:-aren-install-e2e:local}}"
-INSTALL_URL="${AREN_INSTALL_URL:-${AREN_INSTALL_URL:-https://aren.engineer/install.sh}}"
+INSTALL_URL="${AREN_INSTALL_URL:-${AREN_INSTALL_URL:-https://aren.bot/install.sh}}"
 
 OPENAI_API_KEY="${OPENAI_API_KEY:-}"
 ANTHROPIC_API_KEY="${ANTHROPIC_API_KEY:-}"

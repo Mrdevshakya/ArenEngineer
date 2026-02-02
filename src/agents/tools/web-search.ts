@@ -2,6 +2,7 @@ import { Type } from "@sinclair/typebox";
 import type { ArenConfig } from "../../config/config.js";
 import type { AnyAgentTool } from "./common.js";
 import { formatCliCommand } from "../../cli/command-format.js";
+import { wrapWebContent } from "../../security/external-content.js";
 import { jsonResult, readNumberParam, readStringParam } from "./common.js";
 import {
   CacheEntry,
@@ -133,13 +134,13 @@ function missingSearchKeyPayload(provider: (typeof SEARCH_PROVIDERS)[number]) {
       error: "missing_perplexity_api_key",
       message:
         "web_search (perplexity) needs an API key. Set PERPLEXITY_API_KEY or OPENROUTER_API_KEY in the Gateway environment, or configure tools.web.search.perplexity.apiKey.",
-      docs: "https://docs.aren.engineer/tools/web",
+      docs: "https://docs.aren.ai/tools/web",
     };
   }
   return {
     error: "missing_brave_api_key",
     message: `web_search needs a Brave Search API key. Run \`${formatCliCommand("aren configure --section web")}\` to store it, or set BRAVE_API_KEY in the Gateway environment.`,
-    docs: "https://docs.aren.engineer/tools/web",
+    docs: "https://docs.aren.ai/tools/web",
   };
 }
 
@@ -322,7 +323,7 @@ async function runPerplexitySearch(params: {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${params.apiKey}`,
-      "HTTP-Referer": "https://aren.engineer",
+      "HTTP-Referer": "https://aren.ai",
       "X-Title": "Aren Web Search",
     },
     body: JSON.stringify({
@@ -389,7 +390,7 @@ async function runWebSearch(params: {
       provider: params.provider,
       model: params.perplexityModel ?? DEFAULT_PERPLEXITY_MODEL,
       tookMs: Date.now() - start,
-      content,
+      content: wrapWebContent(content),
       citations,
     };
     writeCache(SEARCH_CACHE, cacheKey, payload, params.cacheTtlMs);
@@ -432,13 +433,19 @@ async function runWebSearch(params: {
 
   const data = (await res.json()) as BraveSearchResponse;
   const results = Array.isArray(data.web?.results) ? (data.web?.results ?? []) : [];
-  const mapped = results.map((entry) => ({
-    title: entry.title ?? "",
-    url: entry.url ?? "",
-    description: entry.description ?? "",
-    published: entry.age ?? undefined,
-    siteName: resolveSiteName(entry.url ?? ""),
-  }));
+  const mapped = results.map((entry) => {
+    const description = entry.description ?? "";
+    const title = entry.title ?? "";
+    const url = entry.url ?? "";
+    const rawSiteName = resolveSiteName(url);
+    return {
+      title: title ? wrapWebContent(title, "web_search") : "",
+      url, // Keep raw for tool chaining
+      description: description ? wrapWebContent(description, "web_search") : "",
+      published: entry.age || undefined,
+      siteName: rawSiteName || undefined,
+    };
+  });
 
   const payload = {
     query: params.query,
@@ -494,7 +501,7 @@ export function createWebSearchTool(options?: {
         return jsonResult({
           error: "unsupported_freshness",
           message: "freshness is only supported by the Brave web_search provider.",
-          docs: "https://docs.aren.engineer/tools/web",
+          docs: "https://docs.aren.ai/tools/web",
         });
       }
       const freshness = rawFreshness ? normalizeFreshness(rawFreshness) : undefined;
@@ -503,7 +510,7 @@ export function createWebSearchTool(options?: {
           error: "invalid_freshness",
           message:
             "freshness must be one of pd, pw, pm, py, or a range like YYYY-MM-DDtoYYYY-MM-DD.",
-          docs: "https://docs.aren.engineer/tools/web",
+          docs: "https://docs.aren.ai/tools/web",
         });
       }
       const result = await runWebSearch({

@@ -39,7 +39,7 @@ Swaps injected `SOUL.md` content with `SOUL_EVIL.md` during a purge window or by
 **Events**: `agent:bootstrap`
 **What it does**: Overrides the injected SOUL content before the system prompt is built.
 **Output**: No files written; swaps happen in-memory only.
-**Docs**: https://docs.aren.engineer/hooks/soul-evil
+**Docs**: https://docs.aren.ai/hooks/soul-evil
 
 **Enable**:
 
@@ -82,7 +82,7 @@ session-memory/
 ---
 name: my-hook
 description: "Short description"
-homepage: https://docs.aren.engineer/hooks#my-hook
+homepage: https://docs.aren.ai/hooks#my-hook
 metadata:
   { "aren": { "emoji": "🔗", "events": ["command:new"], "requires": { "bins": ["node"] } } }
 ---
@@ -221,4 +221,4 @@ Test your hooks by:
 
 ## Documentation
 
-Full documentation: https://docs.aren.engineer/hooks
+Full documentation: https://docs.aren.ai/hooks

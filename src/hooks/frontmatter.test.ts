@@ -233,7 +233,7 @@ describe("resolveArenMetadata", () => {
     const content = `---
 name: session-memory
 description: "Save session context to memory when /new command is issued"
-homepage: https://docs.aren.engineer/hooks#session-memory
+homepage: https://docs.aren.ai/hooks#session-memory
 metadata:
   {
     "aren":

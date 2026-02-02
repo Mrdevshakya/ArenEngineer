@@ -1,6 +1,6 @@
 import { formatTerminalLink } from "../utils.js";
 
-export const DOCS_ROOT = "https://docs.aren.engineer";
+export const DOCS_ROOT = "https://docs.aren.ai";
 
 export function formatDocsLink(
   path: string,

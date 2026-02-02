@@ -1,7 +1,7 @@
 ---
 summary: "How the installer scripts work (install.sh + install-cli.sh), flags, and automation"
 read_when:
-  - You want to understand `aren.engineer/install.sh`
+  - You want to understand `aren.ai/install.sh`
   - You want to automate installs (CI / headless)
   - You want to install from a GitHub checkout
 title: "Installer Internals"
@@ -9,22 +9,22 @@ title: "Installer Internals"
 
 # Installer internals
 
-Aren ships two installer scripts (served from `aren.engineer`):
+Aren ships two installer scripts (served from `aren.ai`):
 
-- `https://aren.engineer/install.sh` — “recommended” installer (global npm install by default; can also install from a GitHub checkout)
-- `https://aren.engineer/install-cli.sh` — non-root-friendly CLI installer (installs into a prefix with its own Node)
-- `https://aren.engineer/install.ps1` — Windows PowerShell installer (npm by default; optional git install)
+- `https://aren.ai/install.sh` — “recommended” installer (global npm install by default; can also install from a GitHub checkout)
+- `https://aren.ai/install-cli.sh` — non-root-friendly CLI installer (installs into a prefix with its own Node)
+- `https://aren.ai/install.ps1` — Windows PowerShell installer (npm by default; optional git install)
 
 To see the current flags/behavior, run:
 
 ```bash
-curl -fsSL https://aren.engineer/install.sh | bash -s -- --help
+curl -fsSL https://aren.ai/install.sh | bash -s -- --help
 ```
 
 Windows (PowerShell) help:
 
 ```powershell
-& ([scriptblock]::Create((iwr -useb https://aren.engineer/install.ps1))) -?
+& ([scriptblock]::Create((iwr -useb https://aren.ai/install.ps1))) -?
 ```
 
 If the installer completes but `aren` is not found in a new terminal, it’s usually a Node/npm PATH issue. See: [Install](/install#nodejs--npm-path-sanity).
@@ -46,7 +46,7 @@ What it does (high level):
 If you _want_ `sharp` to link against a globally-installed libvips (or you’re debugging), set:
 
 ```bash
-SHARP_IGNORE_GLOBAL_LIBVIPS=0 curl -fsSL https://aren.engineer/install.sh | bash
+SHARP_IGNORE_GLOBAL_LIBVIPS=0 curl -fsSL https://aren.ai/install.sh | bash
 ```
 
 ### Discoverability / “git install” prompt
@@ -79,7 +79,7 @@ This script installs `aren` into a prefix (default: `~/.aren`) and also installs
 Help:
 
 ```bash
-curl -fsSL https://aren.engineer/install-cli.sh | bash -s -- --help
+curl -fsSL https://aren.ai/install-cli.sh | bash -s -- --help
 ```
 
 ## install.ps1 (Windows PowerShell)
@@ -95,15 +95,15 @@ What it does (high level):
 Examples:
 
 ```powershell
-iwr -useb https://aren.engineer/install.ps1 | iex
+iwr -useb https://aren.ai/install.ps1 | iex
 ```
 
 ```powershell
-iwr -useb https://aren.engineer/install.ps1 | iex -InstallMethod git
+iwr -useb https://aren.ai/install.ps1 | iex -InstallMethod git
 ```
 
 ```powershell
-iwr -useb https://aren.engineer/install.ps1 | iex -InstallMethod git -GitDir "C:\\aren"
+iwr -useb https://aren.ai/install.ps1 | iex -InstallMethod git -GitDir "C:\\aren"
 ```
 
 Environment variables:

@@ -1,33 +1,72 @@
 # Changelog
 
-Docs: https://docs.aren.engineer
+Docs: https://docs.aren.ai
 
-## 2026.1.31
-
-### Changes
-
-- Docs: onboarding/install/i18n/exec-approvals/Control UI/exe.dev/cacheRetention updates + misc nav/typos.
-- Telegram: use shared pairing store. (#6127) Thanks @obviyus.
-- Agents: add OpenRouter app attribution headers. (#5050) Thanks @alexanderatallah.
-- Agents: add system prompt safety guardrails. (#5445) Thanks @joshp123.
-- Agents: update pi-ai to 0.50.9 and rename cacheControlTtl -> cacheRetention (with back-compat mapping).
-- Discord: inherit thread parent bindings for routing. (#3892) Thanks @aerolalit.
+## 2026.2.2
 
 ### Fixes
 
+- Security: guard skill installer downloads with SSRF checks (block private/localhost URLs).
+- Media understanding: apply SSRF guardrails to provider fetches; allow private baseUrl overrides explicitly.
+
+## 2026.2.1
+
+### Changes
+
+- Docs: onboarding/install/i18n/exec-approvals/Control UI/exe.dev/cacheRetention updates + misc nav/typos. (#3050, #3461, #4064, #4675, #4729, #4763, #5003, #5402, #5446, #5474, #5663, #5689, #5694, #5967, #6270, #6300, #6311, #6416, #6487, #6550, #6789)
+- Telegram: use shared pairing store. (#6127) Thanks @obviyus.
+- Agents: add OpenRouter app attribution headers. Thanks @alexanderatallah.
+- Agents: add system prompt safety guardrails. (#5445) Thanks @joshp123.
+- Agents: update pi-ai to 0.50.9 and rename cacheControlTtl -> cacheRetention (with back-compat mapping).
+- Agents: extend CreateAgentSessionOptions with systemPrompt/skills/contextFiles.
+- Agents: add tool policy conformance snapshot (no runtime behavior change). (#6011)
+- Auth: update MiniMax OAuth hint + portal auth note copy.
+- Discord: inherit thread parent bindings for routing. (#3892) Thanks @aerolalit.
+- Gateway: inject timestamps into agent and chat.send messages. (#3705) Thanks @conroywhitney, @CashWilliams.
+- Gateway: require TLS 1.3 minimum for TLS listeners. (#5970) Thanks @loganaden.
+- Web UI: refine chat layout + extend session active duration.
+- CI: add formal conformance + alias consistency checks. (#5723, #5807)
+
+### Fixes
+
+- Security: guard remote media fetches with SSRF protections (block private/localhost, DNS pinning).
+- Updates: clean stale global install rename dirs and extend gateway update timeouts to avoid npm ENOTEMPTY failures.
+- Plugins: validate plugin/hook install paths and reject traversal-like names.
+- Telegram: add download timeouts for file fetches. (#6914) Thanks @hclsys.
+- Telegram: enforce thread specs for DM vs forum sends. (#6833) Thanks @obviyus.
+- Streaming: flush block streaming on paragraph boundaries for newline chunking. (#7014)
+- Streaming: stabilize partial streaming filters.
 - Auto-reply: avoid referencing workspace files in /new greeting prompt. (#5706) Thanks @bravostation.
+- Tools: align tool execute adapters/signatures (legacy + parameter order + arg normalization).
+- Tools: treat `"*"` tool allowlist entries as valid to avoid spurious unknown-entry warnings.
+- Skills: update session-logs paths from .aren to .aren. (#4502)
+- Slack: harden media fetch limits and Slack file URL validation. (#6639) Thanks @davidiach.
+- Lint: satisfy curly rule after import sorting. (#6310)
 - Process: resolve Windows `spawn()` failures for npm-family CLIs by appending `.cmd` when needed. (#5815) Thanks @thejhinvirtuoso.
 - Discord: resolve PluralKit proxied senders for allowlists and labels. (#5838) Thanks @thewilloftheshadow.
+- Tlon: add timeout to SSE client fetch calls (CWE-400). (#5926)
+- Memory search: L2-normalize local embedding vectors to fix semantic search. (#5332)
+- Agents: align embedded runner + typings with pi-coding-agent API updates (pi 0.51.0).
 - Agents: ensure OpenRouter attribution headers apply in the embedded runner.
 - Agents: cap context window resolution for compaction safeguard. (#6187) Thanks @iamEvanYT.
-- System prompt: hint using session_status for current date/time. (#1897, #1928, #2108)
+- System prompt: resolve overrides and hint using session_status for current date/time. (#1897, #1928, #2108, #3677)
+- Agents: fix Pi prompt template argument syntax. (#6543)
+- Subagents: fix announce failover race (always emit lifecycle end; timeout=0 means no-timeout). (#6621)
+- Teams: gate media auth retries.
 - Telegram: restore draft streaming partials. (#5543) Thanks @obviyus.
 - Onboarding: friendlier Windows onboarding message. (#6242) Thanks @shanselman.
 - TUI: prevent crash when searching with digits in the model selector.
-- Agents: wire before_tool_call plugin hook into tool execution. (#6570) Thanks @ryancnelson.
+- Agents: wire before_tool_call plugin hook into tool execution. (#6570, #6660) Thanks @ryancnelson.
 - Browser: secure Chrome extension relay CDP sessions.
 - Docker: use container port for gateway command instead of host port. (#5110) Thanks @mise42.
+- Docker: start gateway CMD by default for container deployments. (#6635) Thanks @kaizen403.
 - fix(lobster): block arbitrary exec via lobsterPath/cwd injection (GHSA-4mhr-g7xj-cg8j). (#5335) Thanks @vignesh07.
+- Security: sanitize WhatsApp accountId to prevent path traversal. (#4610)
+- Security: restrict MEDIA path extraction to prevent LFI. (#4930)
+- Security: validate message-tool filePath/path against sandbox root. (#6398)
+- Security: block LD*/DYLD* env overrides for host exec. (#4896) Thanks @HassanFleyah.
+- Security: harden web tool content wrapping + file parsing safeguards. (#4058) Thanks @VACInc.
+- Security: enforce Twitch `allowFrom` allowlist gating (deny non-allowlisted senders). Thanks @MegaManSec.
 
 ## 2026.1.30
 
@@ -39,11 +78,11 @@ Docs: https://docs.aren.engineer
 - Auth: switch Kimi Coding to built-in provider; normalize OAuth profile email.
 - Auth: add MiniMax OAuth plugin + onboarding option. (#4521) Thanks @Maosghoul.
 - Agents: update pi SDK/API usage and dependencies.
-- Gateway: inject timestamps into agent and chat.send messages. (#3705) Thanks @conroywhitney, @CashWilliams.
 - Web UI: refresh sessions after chat commands and improve session display names.
 - Build: move TypeScript builds to `tsdown` + `tsgo` (faster builds, CI typechecks), update tsconfig target, and clean up lint rules.
 - Build: align npm tar override and bin metadata so the `aren` CLI entrypoint is preserved in npm publishes.
 - Docs: add pi/pi-dev docs and update Aren branding + install links.
+- Docker E2E: stabilize gateway readiness, plugin installs/manifests, and cleanup/doctor switch entrypoint checks.
 
 ### Fixes
 
@@ -107,7 +146,7 @@ Docs: https://docs.aren.engineer
 - Auth: show copyable Google auth URL after ASCII prompt. (#1787) Thanks @robbyczgw-cla.
 - TUI: avoid width overflow when rendering selection lists. (#1686) Thanks @mossein.
 - macOS: finish Aren app rename for macOS sources, bundle identifiers, and shared kit paths. (#2844) Thanks @fal3.
-- Branding: update launchd labels, mobile bundle IDs, and logging subsystems to bot.aren (legacy bundle ID migrations). Thanks @thewilloftheshadow.
+- Branding: update launchd labels, mobile bundle IDs, and logging subsystems to arent (legacy bundle ID migrations). Thanks @thewilloftheshadow.
 - macOS: limit project-local `node_modules/.bin` PATH preference to debug builds (reduce PATH hijacking risk).
 - macOS: keep custom SSH usernames in remote target. (#2046) Thanks @algal.
 - macOS: avoid crash when rendering code blocks by bumping Textual to 0.3.1. (#2033) Thanks @garricn.
@@ -212,28 +251,28 @@ Docs: https://docs.aren.engineer
 
 ### Highlights
 
-- Providers: Ollama discovery + docs; Venice guide upgrades + cross-links. (#1606) Thanks @abhaymundhara. https://docs.aren.engineer/providers/ollama https://docs.aren.engineer/providers/venice
+- Providers: Ollama discovery + docs; Venice guide upgrades + cross-links. (#1606) Thanks @abhaymundhara. https://docs.aren.ai/providers/ollama https://docs.aren.ai/providers/venice
 - Channels: LINE plugin (Messaging API) with rich replies + quick replies. (#1630) Thanks @plum-dawg.
-- TTS: Edge fallback (keyless) + `/tts` auto modes. (#1668, #1667) Thanks @steipete, @sebslight. https://docs.aren.engineer/tts
-- Exec approvals: approve in-chat via `/approve` across all channels (including plugins). (#1621) Thanks @czekaj. https://docs.aren.engineer/tools/exec-approvals https://docs.aren.engineer/tools/slash-commands
-- Telegram: DM topics as separate sessions + outbound link preview toggle. (#1597, #1700) Thanks @rohannagpal, @zerone0x. https://docs.aren.engineer/channels/telegram
+- TTS: Edge fallback (keyless) + `/tts` auto modes. (#1668, #1667) Thanks @steipete, @sebslight. https://docs.aren.ai/tts
+- Exec approvals: approve in-chat via `/approve` across all channels (including plugins). (#1621) Thanks @czekaj. https://docs.aren.ai/tools/exec-approvals https://docs.aren.ai/tools/slash-commands
+- Telegram: DM topics as separate sessions + outbound link preview toggle. (#1597, #1700) Thanks @rohannagpal, @zerone0x. https://docs.aren.ai/channels/telegram
 
 ### Changes
 
 - Channels: add LINE plugin (Messaging API) with rich replies, quick replies, and plugin HTTP registry. (#1630) Thanks @plum-dawg.
-- TTS: add Edge TTS provider fallback, defaulting to keyless Edge with MP3 retry on format failures. (#1668) Thanks @steipete. https://docs.aren.engineer/tts
-- TTS: add auto mode enum (off/always/inbound/tagged) with per-session `/tts` override. (#1667) Thanks @sebslight. https://docs.aren.engineer/tts
+- TTS: add Edge TTS provider fallback, defaulting to keyless Edge with MP3 retry on format failures. (#1668) Thanks @steipete. https://docs.aren.ai/tts
+- TTS: add auto mode enum (off/always/inbound/tagged) with per-session `/tts` override. (#1667) Thanks @sebslight. https://docs.aren.ai/tts
 - Telegram: treat DM topics as separate sessions and keep DM history limits stable with thread suffixes. (#1597) Thanks @rohannagpal.
-- Telegram: add `channels.telegram.linkPreview` to toggle outbound link previews. (#1700) Thanks @zerone0x. https://docs.aren.engineer/channels/telegram
-- Web search: add Brave freshness filter parameter for time-scoped results. (#1688) Thanks @JonUleis. https://docs.aren.engineer/tools/web
+- Telegram: add `channels.telegram.linkPreview` to toggle outbound link previews. (#1700) Thanks @zerone0x. https://docs.aren.ai/channels/telegram
+- Web search: add Brave freshness filter parameter for time-scoped results. (#1688) Thanks @JonUleis. https://docs.aren.ai/tools/web
 - UI: refresh Control UI dashboard design system (colors, icons, typography). (#1745, #1786) Thanks @EnzeD, @mousberg.
-- Exec approvals: forward approval prompts to chat with `/approve` for all channels (including plugins). (#1621) Thanks @czekaj. https://docs.aren.engineer/tools/exec-approvals https://docs.aren.engineer/tools/slash-commands
+- Exec approvals: forward approval prompts to chat with `/approve` for all channels (including plugins). (#1621) Thanks @czekaj. https://docs.aren.ai/tools/exec-approvals https://docs.aren.ai/tools/slash-commands
 - Gateway: expose config.patch in the gateway tool with safe partial updates + restart sentinel. (#1653) Thanks @Glucksberg.
-- Diagnostics: add diagnostic flags for targeted debug logs (config + env override). https://docs.aren.engineer/diagnostics/flags
+- Diagnostics: add diagnostic flags for targeted debug logs (config + env override). https://docs.aren.ai/diagnostics/flags
 - Docs: expand FAQ (migration, scheduling, concurrency, model recommendations, OpenAI subscription auth, Pi sizing, hackable install, docs SSL workaround).
 - Docs: add verbose installer troubleshooting guidance.
 - Docs: add macOS VM guide with local/hosted options + VPS/nodes guidance. (#1693) Thanks @f-trycua.
-- Docs: add Bedrock EC2 instance role setup + IAM steps. (#1625) Thanks @sergical. https://docs.aren.engineer/bedrock
+- Docs: add Bedrock EC2 instance role setup + IAM steps. (#1625) Thanks @sergical. https://docs.aren.ai/bedrock
 - Docs: update Fly.io guide notes.
 - Dev: add prek pre-commit hooks + dependabot config for weekly updates. (#1720) Thanks @dguido.
 
@@ -245,11 +284,11 @@ Docs: https://docs.aren.engineer
 - Web UI: hide internal `message_id` hints in chat bubbles.
 - Gateway: allow Control UI token-only auth to skip device pairing even when device identity is present (`gateway.controlUi.allowInsecureAuth`). (#1679) Thanks @steipete.
 - Matrix: decrypt E2EE media attachments with preflight size guard. (#1744) Thanks @araa47.
-- BlueBubbles: route phone-number targets to DMs, avoid leaking routing IDs, and auto-create missing DMs (Private API required). (#1751) Thanks @tyler6204. https://docs.aren.engineer/channels/bluebubbles
+- BlueBubbles: route phone-number targets to DMs, avoid leaking routing IDs, and auto-create missing DMs (Private API required). (#1751) Thanks @tyler6204. https://docs.aren.ai/channels/bluebubbles
 - BlueBubbles: keep part-index GUIDs in reply tags when short IDs are missing.
 - iMessage: normalize chat_id/chat_guid/chat_identifier prefixes case-insensitively and keep service-prefixed handles stable. (#1708) Thanks @aaronn.
 - Signal: repair reaction sends (group/UUID targets + CLI author flags). (#1651) Thanks @vilkasdev.
-- Signal: add configurable signal-cli startup timeout + external daemon mode docs. (#1677) https://docs.aren.engineer/channels/signal
+- Signal: add configurable signal-cli startup timeout + external daemon mode docs. (#1677) https://docs.aren.ai/channels/signal
 - Telegram: set fetch duplex="half" for uploads on Node 22 to avoid sendPhoto failures. (#1684) Thanks @commdata2338.
 - Telegram: use wrapped fetch for long-polling on Node to normalize AbortSignal handling. (#1639)
 - Telegram: honor per-account proxy for outbound API calls. (#1774) Thanks @radek-paclt.
@@ -289,26 +328,26 @@ Docs: https://docs.aren.engineer
 
 ### Highlights
 
-- TTS: move Telegram TTS into core + enable model-driven TTS tags by default for expressive audio replies. (#1559) Thanks @Glucksberg. https://docs.aren.engineer/tts
-- Gateway: add `/tools/invoke` HTTP endpoint for direct tool calls (auth + tool policy enforced). (#1575) Thanks @vignesh07. https://docs.aren.engineer/gateway/tools-invoke-http-api
-- Heartbeat: per-channel visibility controls (OK/alerts/indicator). (#1452) Thanks @dlauer. https://docs.aren.engineer/gateway/heartbeat
-- Deploy: add Fly.io deployment support + guide. (#1570) https://docs.aren.engineer/platforms/fly
-- Channels: add Tlon/Urbit channel plugin (DMs, group mentions, thread replies). (#1544) Thanks @wca4a. https://docs.aren.engineer/channels/tlon
+- TTS: move Telegram TTS into core + enable model-driven TTS tags by default for expressive audio replies. (#1559) Thanks @Glucksberg. https://docs.aren.ai/tts
+- Gateway: add `/tools/invoke` HTTP endpoint for direct tool calls (auth + tool policy enforced). (#1575) Thanks @vignesh07. https://docs.aren.ai/gateway/tools-invoke-http-api
+- Heartbeat: per-channel visibility controls (OK/alerts/indicator). (#1452) Thanks @dlauer. https://docs.aren.ai/gateway/heartbeat
+- Deploy: add Fly.io deployment support + guide. (#1570) https://docs.aren.ai/platforms/fly
+- Channels: add Tlon/Urbit channel plugin (DMs, group mentions, thread replies). (#1544) Thanks @wca4a. https://docs.aren.ai/channels/tlon
 
 ### Changes
 
-- Channels: allow per-group tool allow/deny policies across built-in + plugin channels. (#1546) Thanks @adam91holt. https://docs.aren.engineer/multi-agent-sandbox-tools
-- Agents: add Bedrock auto-discovery defaults + config overrides. (#1553) Thanks @fal3. https://docs.aren.engineer/bedrock
-- CLI: add `aren system` for system events + heartbeat controls; remove standalone `wake`. (commit 71203829d) https://docs.aren.engineer/cli/system
-- CLI: add live auth probes to `aren models status` for per-profile verification. (commit 40181afde) https://docs.aren.engineer/cli/models
+- Channels: allow per-group tool allow/deny policies across built-in + plugin channels. (#1546) Thanks @adam91holt. https://docs.aren.ai/multi-agent-sandbox-tools
+- Agents: add Bedrock auto-discovery defaults + config overrides. (#1553) Thanks @fal3. https://docs.aren.ai/bedrock
+- CLI: add `aren system` for system events + heartbeat controls; remove standalone `wake`. (commit 71203829d) https://docs.aren.ai/cli/system
+- CLI: add live auth probes to `aren models status` for per-profile verification. (commit 40181afde) https://docs.aren.ai/cli/models
 - CLI: restart the gateway by default after `aren update`; add `--no-restart` to skip it. (commit 2c85b1b40)
 - Browser: add node-host proxy auto-routing for remote gateways (configurable per gateway/node). (commit c3cb26f7c)
-- Plugins: add optional `llm-task` JSON-only tool for workflows. (#1498) Thanks @vignesh07. https://docs.aren.engineer/tools/llm-task
+- Plugins: add optional `llm-task` JSON-only tool for workflows. (#1498) Thanks @vignesh07. https://docs.aren.ai/tools/llm-task
 - Markdown: add per-channel table conversion (bullets for Signal/WhatsApp, code blocks elsewhere). (#1495) Thanks @odysseus0.
 - Agents: keep system prompt time zone-only and move current time to `session_status` for better cache hits. (commit 66eec295b)
 - Agents: remove redundant bash tool alias from tool registration/display. (#1571) Thanks @Takhoffman.
-- Docs: add cron vs heartbeat decision guide (with Lobster workflow notes). (#1533) Thanks @JustYannicc. https://docs.aren.engineer/automation/cron-vs-heartbeat
-- Docs: clarify HEARTBEAT.md empty file skips heartbeats, missing file still runs. (#1535) Thanks @JustYannicc. https://docs.aren.engineer/gateway/heartbeat
+- Docs: add cron vs heartbeat decision guide (with Lobster workflow notes). (#1533) Thanks @JustYannicc. https://docs.aren.ai/automation/cron-vs-heartbeat
+- Docs: clarify HEARTBEAT.md empty file skips heartbeats, missing file still runs. (#1535) Thanks @JustYannicc. https://docs.aren.ai/gateway/heartbeat
 
 ### Fixes
 
@@ -390,15 +429,15 @@ Docs: https://docs.aren.engineer
 
 ### Fixes
 
-- Control UI: ignore bootstrap identity placeholder text for avatar values and fall back to the default avatar. https://docs.aren.engineer/cli/agents https://docs.aren.engineer/web/control-ui
+- Control UI: ignore bootstrap identity placeholder text for avatar values and fall back to the default avatar. https://docs.aren.ai/cli/agents https://docs.aren.ai/web/control-ui
 - Slack: remove deprecated `filetype` field from `files.uploadV2` to eliminate API warnings. (#1447)
 
 ## 2026.1.21
 
 ### Changes
 
-- Highlight: Lobster optional plugin tool for typed workflows + approval gates. https://docs.aren.engineer/tools/lobster
-- Lobster: allow workflow file args via `argsJson` in the plugin tool. https://docs.aren.engineer/tools/lobster
+- Highlight: Lobster optional plugin tool for typed workflows + approval gates. https://docs.aren.ai/tools/lobster
+- Lobster: allow workflow file args via `argsJson` in the plugin tool. https://docs.aren.ai/tools/lobster
 - Heartbeat: allow running heartbeats in an explicit session key. (#1256) Thanks @zknicker.
 - CLI: default exec approvals to the local host, add gateway/node targeting flags, and show target details in allowlist output.
 - CLI: exec approvals mutations render tables instead of raw JSON.
@@ -410,17 +449,17 @@ Docs: https://docs.aren.engineer
 - Sessions: add per-channel reset overrides via `session.resetByChannel`. (#1353) Thanks @cash-echo-bot.
 - Agents: add identity avatar config support and Control UI avatar rendering. (#1329, #1424) Thanks @dlauer.
 - UI: show per-session assistant identity in the Control UI. (#1420) Thanks @robbyczgw-cla.
-- CLI: add `aren update wizard` for interactive channel selection and restart prompts. https://docs.aren.engineer/cli/update
+- CLI: add `aren update wizard` for interactive channel selection and restart prompts. https://docs.aren.ai/cli/update
 - Signal: add typing indicators and DM read receipts via signal-cli.
 - MSTeams: add file uploads, adaptive cards, and attachment handling improvements. (#1410) Thanks @Evizero.
 - Onboarding: remove the run setup-token auth option (paste setup-token or reuse CLI creds instead).
-- Docs: add troubleshooting entry for gateway.mode blocking gateway start. https://docs.aren.engineer/gateway/troubleshooting
+- Docs: add troubleshooting entry for gateway.mode blocking gateway start. https://docs.aren.ai/gateway/troubleshooting
 - Docs: add /model allowlist troubleshooting note. (#1405)
 - Docs: add per-message Gmail search example for gog. (#1220) Thanks @mbelinky.
 
 ### Breaking
 
-- **BREAKING:** Control UI now rejects insecure HTTP without device identity by default. Use HTTPS (Tailscale Serve) or set `gateway.controlUi.allowInsecureAuth: true` to allow token-only auth. https://docs.aren.engineer/web/control-ui#insecure-http
+- **BREAKING:** Control UI now rejects insecure HTTP without device identity by default. Use HTTPS (Tailscale Serve) or set `gateway.controlUi.allowInsecureAuth: true` to allow token-only auth. https://docs.aren.ai/web/control-ui#insecure-http
 - **BREAKING:** Envelope and system event timestamps now default to host-local time (was UTC) so agents don’t have to constantly convert.
 
 ### Fixes
@@ -448,68 +487,68 @@ Docs: https://docs.aren.engineer
 
 ### Changes
 
-- Control UI: add copy-as-markdown with error feedback. (#1345) https://docs.aren.engineer/web/control-ui
-- Control UI: drop the legacy list view. (#1345) https://docs.aren.engineer/web/control-ui
-- TUI: add syntax highlighting for code blocks. (#1200) https://docs.aren.engineer/tui
-- TUI: session picker shows derived titles, fuzzy search, relative times, and last message preview. (#1271) https://docs.aren.engineer/tui
-- TUI: add a searchable model picker for quicker model selection. (#1198) https://docs.aren.engineer/tui
-- TUI: add input history (up/down) for submitted messages. (#1348) https://docs.aren.engineer/tui
-- ACP: add `aren acp` for IDE integrations. https://docs.aren.engineer/cli/acp
-- ACP: add `aren acp client` interactive harness for debugging. https://docs.aren.engineer/cli/acp
-- Skills: add download installs with OS-filtered options. https://docs.aren.engineer/tools/skills
-- Skills: add the local sherpa-onnx-tts skill. https://docs.aren.engineer/tools/skills
-- Memory: add hybrid BM25 + vector search (FTS5) with weighted merging and fallback. https://docs.aren.engineer/concepts/memory
-- Memory: add SQLite embedding cache to speed up reindexing and frequent updates. https://docs.aren.engineer/concepts/memory
-- Memory: add OpenAI batch indexing for embeddings when configured. https://docs.aren.engineer/concepts/memory
-- Memory: enable OpenAI batch indexing by default for OpenAI embeddings. https://docs.aren.engineer/concepts/memory
-- Memory: allow parallel OpenAI batch indexing jobs (default concurrency: 2). https://docs.aren.engineer/concepts/memory
-- Memory: render progress immediately, color batch statuses in verbose logs, and poll OpenAI batch status every 2s by default. https://docs.aren.engineer/concepts/memory
-- Memory: add `--verbose` logging for memory status + batch indexing details. https://docs.aren.engineer/concepts/memory
-- Memory: add native Gemini embeddings provider for memory search. (#1151) https://docs.aren.engineer/concepts/memory
-- Browser: allow config defaults for efficient snapshots in the tool/CLI. (#1336) https://docs.aren.engineer/tools/browser
-- Nostr: add the Nostr channel plugin with profile management + onboarding defaults. (#1323) https://docs.aren.engineer/channels/nostr
-- Matrix: migrate to matrix-bot-sdk with E2EE support, location handling, and group allowlist upgrades. (#1298) https://docs.aren.engineer/channels/matrix
-- Slack: add HTTP webhook mode via Bolt HTTP receiver. (#1143) https://docs.aren.engineer/channels/slack
-- Telegram: enrich forwarded-message context with normalized origin details + legacy fallback. (#1090) https://docs.aren.engineer/channels/telegram
+- Control UI: add copy-as-markdown with error feedback. (#1345) https://docs.aren.ai/web/control-ui
+- Control UI: drop the legacy list view. (#1345) https://docs.aren.ai/web/control-ui
+- TUI: add syntax highlighting for code blocks. (#1200) https://docs.aren.ai/tui
+- TUI: session picker shows derived titles, fuzzy search, relative times, and last message preview. (#1271) https://docs.aren.ai/tui
+- TUI: add a searchable model picker for quicker model selection. (#1198) https://docs.aren.ai/tui
+- TUI: add input history (up/down) for submitted messages. (#1348) https://docs.aren.ai/tui
+- ACP: add `aren acp` for IDE integrations. https://docs.aren.ai/cli/acp
+- ACP: add `aren acp client` interactive harness for debugging. https://docs.aren.ai/cli/acp
+- Skills: add download installs with OS-filtered options. https://docs.aren.ai/tools/skills
+- Skills: add the local sherpa-onnx-tts skill. https://docs.aren.ai/tools/skills
+- Memory: add hybrid BM25 + vector search (FTS5) with weighted merging and fallback. https://docs.aren.ai/concepts/memory
+- Memory: add SQLite embedding cache to speed up reindexing and frequent updates. https://docs.aren.ai/concepts/memory
+- Memory: add OpenAI batch indexing for embeddings when configured. https://docs.aren.ai/concepts/memory
+- Memory: enable OpenAI batch indexing by default for OpenAI embeddings. https://docs.aren.ai/concepts/memory
+- Memory: allow parallel OpenAI batch indexing jobs (default concurrency: 2). https://docs.aren.ai/concepts/memory
+- Memory: render progress immediately, color batch statuses in verbose logs, and poll OpenAI batch status every 2s by default. https://docs.aren.ai/concepts/memory
+- Memory: add `--verbose` logging for memory status + batch indexing details. https://docs.aren.ai/concepts/memory
+- Memory: add native Gemini embeddings provider for memory search. (#1151) https://docs.aren.ai/concepts/memory
+- Browser: allow config defaults for efficient snapshots in the tool/CLI. (#1336) https://docs.aren.ai/tools/browser
+- Nostr: add the Nostr channel plugin with profile management + onboarding defaults. (#1323) https://docs.aren.ai/channels/nostr
+- Matrix: migrate to matrix-bot-sdk with E2EE support, location handling, and group allowlist upgrades. (#1298) https://docs.aren.ai/channels/matrix
+- Slack: add HTTP webhook mode via Bolt HTTP receiver. (#1143) https://docs.aren.ai/channels/slack
+- Telegram: enrich forwarded-message context with normalized origin details + legacy fallback. (#1090) https://docs.aren.ai/channels/telegram
 - Discord: fall back to `/skill` when native command limits are exceeded. (#1287)
 - Discord: expose `/skill` globally. (#1287)
-- Zalouser: add channel dock metadata, config schema, setup wiring, probe, and status issues. (#1219) https://docs.aren.engineer/plugins/zalouser
-- Plugins: require manifest-embedded config schemas with preflight validation warnings. (#1272) https://docs.aren.engineer/plugins/manifest
-- Plugins: move channel catalog metadata into plugin manifests. (#1290) https://docs.aren.engineer/plugins/manifest
-- Plugins: align Nextcloud Talk policy helpers with core patterns. (#1290) https://docs.aren.engineer/plugins/manifest
-- Plugins/UI: let channel plugin metadata drive UI labels/icons and cron channel options. (#1306) https://docs.aren.engineer/web/control-ui
-- Agents/UI: add agent avatar support in identity config, IDENTITY.md, and the Control UI. (#1329) https://docs.aren.engineer/gateway/configuration
-- Plugins: add plugin slots with a dedicated memory slot selector. https://docs.aren.engineer/plugins/agent-tools
-- Plugins: ship the bundled BlueBubbles channel plugin (disabled by default). https://docs.aren.engineer/channels/bluebubbles
+- Zalouser: add channel dock metadata, config schema, setup wiring, probe, and status issues. (#1219) https://docs.aren.ai/plugins/zalouser
+- Plugins: require manifest-embedded config schemas with preflight validation warnings. (#1272) https://docs.aren.ai/plugins/manifest
+- Plugins: move channel catalog metadata into plugin manifests. (#1290) https://docs.aren.ai/plugins/manifest
+- Plugins: align Nextcloud Talk policy helpers with core patterns. (#1290) https://docs.aren.ai/plugins/manifest
+- Plugins/UI: let channel plugin metadata drive UI labels/icons and cron channel options. (#1306) https://docs.aren.ai/web/control-ui
+- Agents/UI: add agent avatar support in identity config, IDENTITY.md, and the Control UI. (#1329) https://docs.aren.ai/gateway/configuration
+- Plugins: add plugin slots with a dedicated memory slot selector. https://docs.aren.ai/plugins/agent-tools
+- Plugins: ship the bundled BlueBubbles channel plugin (disabled by default). https://docs.aren.ai/channels/bluebubbles
 - Plugins: migrate bundled messaging extensions to the plugin SDK and resolve plugin-sdk imports in the loader.
-- Plugins: migrate the Zalo plugin to the shared plugin SDK runtime. https://docs.aren.engineer/channels/zalo
-- Plugins: migrate the Zalo Personal plugin to the shared plugin SDK runtime. https://docs.aren.engineer/plugins/zalouser
-- Plugins: allow optional agent tools with explicit allowlists and add the plugin tool authoring guide. https://docs.aren.engineer/plugins/agent-tools
+- Plugins: migrate the Zalo plugin to the shared plugin SDK runtime. https://docs.aren.ai/channels/zalo
+- Plugins: migrate the Zalo Personal plugin to the shared plugin SDK runtime. https://docs.aren.ai/plugins/zalouser
+- Plugins: allow optional agent tools with explicit allowlists and add the plugin tool authoring guide. https://docs.aren.ai/plugins/agent-tools
 - Plugins: auto-enable bundled channel/provider plugins when configuration is present.
 - Plugins: sync plugin sources on channel switches and update npm-installed plugins during `aren update`.
 - Plugins: share npm plugin update logic between `aren update` and `aren plugins update`.
 
 - Gateway/API: add `/v1/responses` (OpenResponses) with item-based input + semantic streaming events. (#1229)
 - Gateway/API: expand `/v1/responses` to support file/image inputs, tool_choice, usage, and output limits. (#1229)
-- Usage: add `/usage cost` summaries and macOS menu cost charts. https://docs.aren.engineer/reference/api-usage-costs
-- Security: warn when <=300B models run without sandboxing while web tools are enabled. https://docs.aren.engineer/cli/security
-- Exec: add host/security/ask routing for gateway + node exec. https://docs.aren.engineer/tools/exec
-- Exec: add `/exec` directive for per-session exec defaults (host/security/ask/node). https://docs.aren.engineer/tools/exec
-- Exec approvals: migrate approvals to `~/.aren/exec-approvals.json` with per-agent allowlists + skill auto-allow toggle, and add approvals UI + node exec lifecycle events. https://docs.aren.engineer/tools/exec-approvals
-- Nodes: add headless node host (`aren node start`) for `system.run`/`system.which`. https://docs.aren.engineer/cli/node
-- Nodes: add node daemon service install/status/start/stop/restart. https://docs.aren.engineer/cli/node
+- Usage: add `/usage cost` summaries and macOS menu cost charts. https://docs.aren.ai/reference/api-usage-costs
+- Security: warn when <=300B models run without sandboxing while web tools are enabled. https://docs.aren.ai/cli/security
+- Exec: add host/security/ask routing for gateway + node exec. https://docs.aren.ai/tools/exec
+- Exec: add `/exec` directive for per-session exec defaults (host/security/ask/node). https://docs.aren.ai/tools/exec
+- Exec approvals: migrate approvals to `~/.aren/exec-approvals.json` with per-agent allowlists + skill auto-allow toggle, and add approvals UI + node exec lifecycle events. https://docs.aren.ai/tools/exec-approvals
+- Nodes: add headless node host (`aren node start`) for `system.run`/`system.which`. https://docs.aren.ai/cli/node
+- Nodes: add node daemon service install/status/start/stop/restart. https://docs.aren.ai/cli/node
 - Bridge: add `skills.bins` RPC to support node host auto-allow skill bins.
-- Sessions: add daily reset policy with per-type overrides and idle windows (default 4am local), preserving legacy idle-only configs. (#1146) https://docs.aren.engineer/concepts/session
-- Sessions: allow `sessions_spawn` to override thinking level for sub-agent runs. https://docs.aren.engineer/tools/subagents
-- Channels: unify thread/topic allowlist matching + command/mention gating helpers across core providers. https://docs.aren.engineer/concepts/groups
-- Models: add Qwen Portal OAuth provider support. (#1120) https://docs.aren.engineer/providers/qwen
-- Onboarding: add allowlist prompts and username-to-id resolution across core and extension channels. https://docs.aren.engineer/start/onboarding
-- Docs: clarify allowlist input types and onboarding behavior for messaging channels. https://docs.aren.engineer/start/onboarding
-- Docs: refresh Android node discovery docs for the Gateway WS service type. https://docs.aren.engineer/platforms/android
-- Docs: surface Amazon Bedrock in provider lists and clarify Bedrock auth env vars. (#1289) https://docs.aren.engineer/bedrock
-- Docs: clarify WhatsApp voice notes. https://docs.aren.engineer/channels/whatsapp
-- Docs: clarify Windows WSL portproxy LAN access notes. https://docs.aren.engineer/platforms/windows
-- Docs: refresh bird skill install metadata and usage notes. (#1302) https://docs.aren.engineer/tools/browser-login
+- Sessions: add daily reset policy with per-type overrides and idle windows (default 4am local), preserving legacy idle-only configs. (#1146) https://docs.aren.ai/concepts/session
+- Sessions: allow `sessions_spawn` to override thinking level for sub-agent runs. https://docs.aren.ai/tools/subagents
+- Channels: unify thread/topic allowlist matching + command/mention gating helpers across core providers. https://docs.aren.ai/concepts/groups
+- Models: add Qwen Portal OAuth provider support. (#1120) https://docs.aren.ai/providers/qwen
+- Onboarding: add allowlist prompts and username-to-id resolution across core and extension channels. https://docs.aren.ai/start/onboarding
+- Docs: clarify allowlist input types and onboarding behavior for messaging channels. https://docs.aren.ai/start/onboarding
+- Docs: refresh Android node discovery docs for the Gateway WS service type. https://docs.aren.ai/platforms/android
+- Docs: surface Amazon Bedrock in provider lists and clarify Bedrock auth env vars. (#1289) https://docs.aren.ai/bedrock
+- Docs: clarify WhatsApp voice notes. https://docs.aren.ai/channels/whatsapp
+- Docs: clarify Windows WSL portproxy LAN access notes. https://docs.aren.ai/platforms/windows
+- Docs: refresh bird skill install metadata and usage notes. (#1302) https://docs.aren.ai/tools/browser-login
 - Agents: add local docs path resolution and include docs/mirror/source/community pointers in the system prompt.
 - Agents: clarify node_modules read-only guidance in agent instructions.
 - Config: stamp last-touched metadata on write and warn if the config is newer than the running build.
@@ -638,12 +677,12 @@ Thanks @AlexMikhalev, @CoreyH, @John-Rood, @KrauseFx, @MaudeBot, @Nachx639, @Nic
 
 ### Highlights
 
-- Hooks: add hooks system with bundled hooks, CLI tooling, and docs. (#1028) — thanks @ThomsenDrake. https://docs.aren.engineer/hooks
-- Media: add inbound media understanding (image/audio/video) with provider + CLI fallbacks. https://docs.aren.engineer/nodes/media-understanding
-- Plugins: add Zalo Personal plugin (`@aren/zalouser`) and unify channel directory for plugins. (#1032) — thanks @suminhthanh. https://docs.aren.engineer/plugins/zalouser
-- Models: add Vercel AI Gateway auth choice + onboarding updates. (#1016) — thanks @timolins. https://docs.aren.engineer/providers/vercel-ai-gateway
-- Sessions: add `session.identityLinks` for cross-platform DM session li nking. (#1033) — thanks @thewilloftheshadow. https://docs.aren.engineer/concepts/session
-- Web search: add `country`/`language` parameters (schema + Brave API) and docs. (#1046) — thanks @YuriNachos. https://docs.aren.engineer/tools/web
+- Hooks: add hooks system with bundled hooks, CLI tooling, and docs. (#1028) — thanks @ThomsenDrake. https://docs.aren.ai/hooks
+- Media: add inbound media understanding (image/audio/video) with provider + CLI fallbacks. https://docs.aren.ai/nodes/media-understanding
+- Plugins: add Zalo Personal plugin (`@aren/zalouser`) and unify channel directory for plugins. (#1032) — thanks @suminhthanh. https://docs.aren.ai/plugins/zalouser
+- Models: add Vercel AI Gateway auth choice + onboarding updates. (#1016) — thanks @timolins. https://docs.aren.ai/providers/vercel-ai-gateway
+- Sessions: add `session.identityLinks` for cross-platform DM session li nking. (#1033) — thanks @thewilloftheshadow. https://docs.aren.ai/concepts/session
+- Web search: add `country`/`language` parameters (schema + Brave API) and docs. (#1046) — thanks @YuriNachos. https://docs.aren.ai/tools/web
 
 ### Breaking
 
@@ -651,7 +690,7 @@ Thanks @AlexMikhalev, @CoreyH, @John-Rood, @KrauseFx, @MaudeBot, @Nachx639, @Nic
 - **BREAKING:** Channel auth now prefers config over env for Discord/Telegram/Matrix (env is fallback only). (#1040) — thanks @thewilloftheshadow.
 - **BREAKING:** Drop legacy `chatType: "room"` support; use `chatType: "channel"`.
 - **BREAKING:** remove legacy provider-specific target resolution fallbacks; target resolution is centralized with plugin hints + directory lookups.
-- **BREAKING:** `aren hooks` is now `aren webhooks`; hooks live under `aren hooks`. https://docs.aren.engineer/cli/webhooks
+- **BREAKING:** `aren hooks` is now `aren webhooks`; hooks live under `aren hooks`. https://docs.aren.ai/cli/webhooks
 - **BREAKING:** `aren plugins install <path>` now copies into `~/.aren/extensions` (use `--link` to keep path-based loading).
 
 ### Changes
@@ -663,7 +702,7 @@ Thanks @AlexMikhalev, @CoreyH, @John-Rood, @KrauseFx, @MaudeBot, @Nachx639, @Nic
 - Tools: send Chrome-like headers by default for `web_fetch` to improve extraction on bot-sensitive sites.
 - Tools: Firecrawl fallback now uses bot-circumvention + cache by default; remove basic HTML fallback when extraction fails.
 - Tools: default `exec` exit notifications and auto-migrate legacy `tools.bash` to `tools.exec`.
-- Tools: add `exec` PTY support for interactive sessions. https://docs.aren.engineer/tools/exec
+- Tools: add `exec` PTY support for interactive sessions. https://docs.aren.ai/tools/exec
 - Tools: add tmux-style `process send-keys` and bracketed paste helpers for PTY sessions.
 - Tools: add `process submit` helper to send CR for PTY sessions.
 - Tools: respond to PTY cursor position queries to unblock interactive TUIs.
@@ -719,7 +758,7 @@ Thanks @AlexMikhalev, @CoreyH, @John-Rood, @KrauseFx, @MaudeBot, @Nachx639, @Nic
 - Sessions: hard-stop `sessions.delete` cleanup.
 - Channels: treat replies to the bot as implicit mentions across supported channels.
 - Channels: normalize object-format capabilities in channel capability parsing.
-- Security: default-deny slash/control commands unless a channel computed `CommandAuthorized` (fixes accidental “open” behavior), and ensure WhatsApp + Zalo plugin channels gate inline `/…` tokens correctly. https://docs.aren.engineer/gateway/security
+- Security: default-deny slash/control commands unless a channel computed `CommandAuthorized` (fixes accidental “open” behavior), and ensure WhatsApp + Zalo plugin channels gate inline `/…` tokens correctly. https://docs.aren.ai/gateway/security
 - Security: redact sensitive text in gateway WS logs.
 - Tools: cap pending `exec` process output to avoid unbounded buffers.
 - CLI: speed up `aren sandbox-explain` by avoiding heavy plugin imports when normalizing channel ids.
@@ -1046,7 +1085,7 @@ Thanks @AlexMikhalev, @CoreyH, @John-Rood, @KrauseFx, @MaudeBot, @Nachx639, @Nic
 - Agents: add pre-compaction memory flush config (`agents.defaults.compaction.*`) with a soft threshold + system prompt.
 - Config: add `$include` directive for modular config files. (#731) — thanks @pasogott.
 - Build: set pnpm minimum release age to 2880 minutes (2 days). (#718) — thanks @dan-dr.
-- macOS: prompt to install the global `aren` CLI when missing in local mode; install via `aren.engineer/install-cli.sh` (no onboarding) and use external launchd/CLI instead of the embedded gateway runtime.
+- macOS: prompt to install the global `aren` CLI when missing in local mode; install via `aren.ai/install-cli.sh` (no onboarding) and use external launchd/CLI instead of the embedded gateway runtime.
 - Docs: add gog calendar event color IDs from `gog calendar colors`. (#715) — thanks @mjrussell.
 - Cron/CLI: add `--model` flag to cron add/edit commands. (#711) — thanks @mjrussell.
 - Cron/CLI: trim model overrides on cron edits and document main-session guidance. (#711) — thanks @mjrussell.
@@ -1061,7 +1100,7 @@ Thanks @AlexMikhalev, @CoreyH, @John-Rood, @KrauseFx, @MaudeBot, @Nachx639, @Nic
 
 - Postinstall: replace `git apply` with builtin JS patcher (works npm/pnpm/bun; no git dependency) plus regression tests.
 - Postinstall: skip pnpm patch fallback when the new patcher is active.
-- Installer tests: add root+non-root docker smokes, CI workflow to fetch aren.engineer scripts and run install sh/cli with onboarding skipped.
+- Installer tests: add root+non-root docker smokes, CI workflow to fetch aren.ai scripts and run install sh/cli with onboarding skipped.
 - Installer UX: support `AREN_NO_ONBOARD=1` for non-interactive installs; fix npm prefix on Linux and auto-install git.
 - Installer UX: add `install.sh --help` with flags/env and git install hint.
 - Installer UX: add `--install-method git|npm` and auto-detect source checkouts (prompt to update git checkout vs migrate to npm).
@@ -1252,7 +1291,7 @@ Thanks @AlexMikhalev, @CoreyH, @John-Rood, @KrauseFx, @MaudeBot, @Nachx639, @Nic
 - Signal: reaction handling safety; own-reaction matching (uuid+phone); UUID-only senders accepted; ignore reaction-only messages.
 - MS Teams: download image attachments reliably; fix top-level replies; stop on shutdown + honor chunk limits; normalize poll providers/deps; pairing label fixes.
 - iMessage: isolate group-ish threads by chat_id.
-- Gateway/Daemon/Doctor: atomic config writes; repair gateway service entrypoint + install switches; non-interactive legacy migrations; systemd unit alignment + KillMode=process; node bridge keepalive/pings; Launch at Login persistence; bundle arenKit resources + Swift 6.2 compat dylib; relay version check + remove smoke test; regen Swift GatewayModels + keep agent provider string; cron jobId alias + channel alias migration + main session key normalization; heartbeat Telegram accountId resolution; avoid WhatsApp fallback for internal runs; gateway listener error wording; serveBaseUrl param; honor gateway --dev; fix wide-area discovery updates; align agents.defaults schema; provider account metadata in daemon status; refresh Carbon patch for gateway fixes; restore doctor prompter initialValue handling.
+- Gateway/Daemon/Doctor: atomic config writes; repair gateway service entrypoint + install switches; non-interactive legacy migrations; systemd unit alignment + KillMode=process; node bridge keepalive/pings; Launch at Login persistence; bundle ArenKit resources + Swift 6.2 compat dylib; relay version check + remove smoke test; regen Swift GatewayModels + keep agent provider string; cron jobId alias + channel alias migration + main session key normalization; heartbeat Telegram accountId resolution; avoid WhatsApp fallback for internal runs; gateway listener error wording; serveBaseUrl param; honor gateway --dev; fix wide-area discovery updates; align agents.defaults schema; provider account metadata in daemon status; refresh Carbon patch for gateway fixes; restore doctor prompter initialValue handling.
 - Control UI/TUI: persist per-session verbose off + hide tool cards; logs tab opens at bottom; relative asset paths + landing cleanup; session labels lookup/persistence; stop pinning main session in recents; start logs at bottom; TUI status bar refresh + timeout handling + hide reasoning label when off.
 - Onboarding/Configure: QuickStart single-select provider picker; avoid Codex CLI false-expiry warnings; clarify WhatsApp owner prompt; fix Minimax hosted onboarding (agents.defaults + msteams heartbeat target); remove configure Control UI prompt; honor gateway --dev flag.
 
@@ -1340,5 +1379,5 @@ Thanks @AlexMikhalev, @CoreyH, @John-Rood, @KrauseFx, @MaudeBot, @Nachx639, @Nic
 - Discord/Slack: route reaction + system notifications to the correct session (no main-session bleed).
 - Agent tools: honor `agent.tools` allow/deny policy even when sandbox is off.
 - Discord: avoid duplicate replies when OpenAI emits repeated `message_end` events.
-- Commands: unify /status (inline) and command auth across providers; group bypass for authorized control commands; remove Discord /aren slash handler.
+- Commands: unify /status (inline) and command auth across providers; group bypass for authorized control commands; remove Discord /clawd slash handler.
 - CLI: run `aren agent` via the Gateway by default; use `--local` to force embedded mode.

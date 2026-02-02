@@ -37,16 +37,16 @@ jobs:
                 label: "r: support",
                 close: true,
                 message:
-                  "Please use [our support server](https://discord.gg/aren) and ask in #help or #users-helping-users to resolve this, or follow the stuck FAQ at https://docs.aren.engineer/help/faq#im-stuck-whats-the-fastest-way-to-get-unstuck.",
+                  "Please use [our support server](https://discord.gg/aren) and ask in #help or #users-helping-users to resolve this, or follow the stuck FAQ at https://docs.aren.ai/help/faq#im-stuck-whats-the-fastest-way-to-get-unstuck.",
               },
               {
                 label: "r: third-party-extension",
                 close: true,
                 message:
-                  "This would be better made as a third-party extension with our SDK that you maintain yourself. Docs: https://docs.aren.engineer/plugin.",
+                  "This would be better made as a third-party extension with our SDK that you maintain yourself. Docs: https://docs.aren.ai/plugin.",
               },
               {
-                label: "r: arenbook",
+                label: "r: Arenbook",
                 close: true,
                 lock: true,
                 lockReason: "off-topic",
@@ -61,14 +61,14 @@ jobs:
               const body = issue.body ?? "";
               const haystack = `${title}\n${body}`.toLowerCase();
               const hasLabel = (issue.labels ?? []).some((label) =>
-                typeof label === "string" ? label === "r: arenbook" : label?.name === "r: arenbook",
+                typeof label === "string" ? label === "r: Arenbook" : label?.name === "r: Arenbook",
               );
-              if (haystack.includes("arenbook") && !hasLabel) {
+              if (haystack.includes("Arenbook") && !hasLabel) {
                 await github.rest.issues.addLabels({
                   owner: context.repo.owner,
                   repo: context.repo.repo,
                   issue_number: issue.number,
-                  labels: ["r: arenbook"],
+                  labels: ["r: Arenbook"],
                 });
                 return;
               }

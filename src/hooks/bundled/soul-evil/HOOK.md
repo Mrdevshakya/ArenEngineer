@@ -1,7 +1,7 @@
 ---
 name: soul-evil
 description: "Swap SOUL.md with SOUL_EVIL.md during a purge window or by random chance"
-homepage: https://docs.aren.engineer/hooks/soul-evil
+homepage: https://docs.aren.ai/hooks/soul-evil
 metadata:
   {
     "aren":

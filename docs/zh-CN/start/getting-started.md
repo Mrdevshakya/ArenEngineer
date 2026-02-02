@@ -61,7 +61,7 @@ Windows：使用 **WSL2** （推荐 Ubuntu）。强烈推荐使用 WSL2；原生
 ## 1）安装 CLI（推荐）
 
 ```bash
-curl -fsSL https://aren.engineer/install.sh | bash
+curl -fsSL https://aren.bot/install.sh | bash
 ```
 
 安装选项（安装方式、非交互式、从 GitHub 安装）： [安装](/install)。
@@ -69,7 +69,7 @@ curl -fsSL https://aren.engineer/install.sh | bash
 Windows (PowerShell)：
 
 ```powershell
-iwr -useb https://aren.engineer/install.ps1 | iex
+iwr -useb https://aren.ai/install.ps1 | iex
 ```
 
 替代方式（全局安装）：

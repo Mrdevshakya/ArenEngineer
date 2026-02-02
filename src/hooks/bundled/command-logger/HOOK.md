@@ -1,7 +1,7 @@
 ---
 name: command-logger
 description: "Log all command events to a centralized audit file"
-homepage: https://docs.aren.engineer/hooks#command-logger
+homepage: https://docs.aren.ai/hooks#command-logger
 metadata:
   {
     "aren":

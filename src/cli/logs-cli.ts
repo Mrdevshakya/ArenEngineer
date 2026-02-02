@@ -195,7 +195,7 @@ export function registerLogsCli(program: Command) {
     .addHelpText(
       "after",
       () =>
-        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/logs", "docs.aren.engineer/cli/logs")}\n`,
+        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/logs", "docs.aren.ai/cli/logs")}\n`,
     );
 
   addGatewayClientOptions(logs);

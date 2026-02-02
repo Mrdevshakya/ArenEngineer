@@ -73,7 +73,7 @@ async function requireRiskAcknowledgement(params: {
       "aren security audit --deep",
       "aren security audit --fix",
       "",
-      "Must read: https://docs.aren.engineer/gateway/security",
+      "Must read: https://docs.aren.ai/gateway/security",
     ].join("\n"),
     "Security",
   );
@@ -106,7 +106,7 @@ export async function runOnboardingWizard(
         [
           ...snapshot.issues.map((iss) => `- ${iss.path}: ${iss.message}`),
           "",
-          "Docs: https://docs.aren.engineer/gateway/configuration",
+          "Docs: https://docs.aren.ai/gateway/configuration",
         ].join("\n"),
         "Config issues",
       );

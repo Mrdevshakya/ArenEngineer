@@ -128,7 +128,7 @@ export async function runNonInteractiveOnboardingLocal(params: {
 
   if (!opts.json) {
     runtime.log(
-      `Tip: run \`${formatCliCommand("aren configure --section web")}\` to store your Brave API key for web_search. Docs: https://docs.aren.engineer/tools/web`,
+      `Tip: run \`${formatCliCommand("aren configure --section web")}\` to store your Brave API key for web_search. Docs: https://docs.aren.ai/tools/web`,
     );
   }
 }

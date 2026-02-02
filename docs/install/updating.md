@@ -17,7 +17,7 @@ detects existing installs, upgrades in place, and runs `aren doctor` when
 needed.
 
 ```bash
-curl -fsSL https://aren.engineer/install.sh | bash
+curl -fsSL https://aren.ai/install.sh | bash
 ```
 
 Notes:
@@ -25,7 +25,7 @@ Notes:
 - Add `--no-onboard` if you don’t want the onboarding wizard to run again.
 - For **source installs**, use:
   ```bash
-  curl -fsSL https://aren.engineer/install.sh | bash -s -- --install-method git --no-onboard
+  curl -fsSL https://aren.ai/install.sh | bash -s -- --install-method git --no-onboard
   ```
   The installer will `git pull --rebase` **only** if the repo is clean.
 - For **global installs**, the script uses `npm install -g aren@latest` under the hood.
@@ -167,7 +167,7 @@ aren logs --follow
 
 If you’re supervised:
 
-- macOS launchd (app-bundled LaunchAgent): `launchctl kickstart -k gui/$UID/bot.aren.gateway` (use `bot.aren.<profile>`; legacy `com.aren.*` still works)
+- macOS launchd (app-bundled LaunchAgent): `launchctl kickstart -k gui/$UID/arent.gateway` (use `arent.<profile>`; legacy `bot.aren.*` still works)
 - Linux systemd user service: `systemctl --user restart aren-gateway[-<profile>].service`
 - Windows (WSL2): `systemctl --user restart aren-gateway[-<profile>].service`
   - `launchctl`/`systemctl` only work if the service is installed; otherwise run `aren gateway install`.

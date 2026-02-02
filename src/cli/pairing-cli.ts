@@ -57,7 +57,7 @@ export function registerPairingCli(program: Command) {
     .addHelpText(
       "after",
       () =>
-        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/pairing", "docs.aren.engineer/cli/pairing")}\n`,
+        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/pairing", "docs.aren.ai/cli/pairing")}\n`,
     );
 
   pairing

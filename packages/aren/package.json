@@ -1,0 +1,19 @@
+{
+  "name": "aren",
+  "version": "2026.1.27-beta.1",
+  "description": "Aren - AI-powered messaging platform",
+  "bin": {
+    "aren": "./bin/aren.js"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./cli-entry": "./bin/aren.js"
+  },
+  "scripts": {
+    "postinstall": "node ./scripts/postinstall.js"
+  },
+  "dependencies": {
+    "aren": "workspace:*"
+  }
+}

@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-  namespace = "ai.aren.app"
+  namespace = "ai.aren.android"
   compileSdk = 36
 
   sourceSets {
@@ -18,11 +18,11 @@ android {
   }
 
   defaultConfig {
-    applicationId = "ai.aren.app"
+    applicationId = "ai.aren.android"
     minSdk = 31
     targetSdk = 36
-    versionCode = 202601290
-    versionName = "2026.1.30"
+    versionCode = 202602010
+    versionName = "2026.2.1"
   }
 
   buildTypes {

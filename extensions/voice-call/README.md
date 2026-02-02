@@ -9,8 +9,8 @@ Providers:
 - **Plivo** (Voice API + XML transfer + GetInput speech)
 - **Mock** (dev/no network)
 
-Docs: `https://docs.aren.engineer/plugins/voice-call`
-Plugin system: `https://docs.aren.engineer/plugin`
+Docs: `https://docs.aren.ai/plugins/voice-call`
+Plugin system: `https://docs.aren.ai/plugin`
 
 ## Install (local dev)
 

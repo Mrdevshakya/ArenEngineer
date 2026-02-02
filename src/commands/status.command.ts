@@ -599,8 +599,8 @@ export async function statusCommand(
   }
 
   runtime.log("");
-  runtime.log("FAQ: https://docs.aren.engineer/faq");
-  runtime.log("Troubleshooting: https://docs.aren.engineer/troubleshooting");
+  runtime.log("FAQ: https://docs.aren.ai/faq");
+  runtime.log("Troubleshooting: https://docs.aren.ai/troubleshooting");
   runtime.log("");
   const updateHint = formatUpdateAvailableHint(update);
   if (updateHint) {

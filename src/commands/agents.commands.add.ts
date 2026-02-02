@@ -333,7 +333,7 @@ export async function agentsAddCommand(
         await prompter.note(
           [
             "Routing unchanged. Add bindings when you're ready.",
-            "Docs: https://docs.aren.engineer/concepts/multi-agent",
+            "Docs: https://docs.aren.ai/concepts/multi-agent",
           ].join("\n"),
           "Routing",
         );

@@ -86,7 +86,7 @@ describe("applyExtraParamsToAgent", () => {
 
     expect(calls).toHaveLength(1);
     expect(calls[0]?.headers).toEqual({
-      "HTTP-Referer": "https://aren.engineer",
+      "HTTP-Referer": "https://aren.ai",
       "X-Title": "Aren",
       "X-Custom": "1",
     });

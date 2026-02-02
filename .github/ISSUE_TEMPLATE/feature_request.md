@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea or improvement for Arenbot.
+about: Suggest an idea or improvement for Aren.
 title: "[Feature]: "
 labels: enhancement
 ---
@@ -11,7 +11,7 @@ Describe the problem you are trying to solve or the opportunity you see.
 
 ## Proposed solution
 
-What would you like Arenbot to do?
+What would you like Aren to do?
 
 ## Alternatives considered
 

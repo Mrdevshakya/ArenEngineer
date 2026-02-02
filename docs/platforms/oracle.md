@@ -99,7 +99,7 @@ tailscale status
 ## 5) Install Aren
 
 ```bash
-curl -fsSL https://aren.engineer/install.sh | bash
+curl -fsSL https://aren.ai/install.sh | bash
 source ~/.bashrc
 ```
 

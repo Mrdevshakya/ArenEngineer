@@ -10,7 +10,7 @@
 - Docs: `docs/` (images, queue, Pi config). Built output lives in `dist/`.
 - Plugins/extensions: live under `extensions/*` (workspace packages). Keep plugin-only deps in the extension `package.json`; do not add them to the root `package.json` unless core uses them.
 - Plugins: install runs `npm install --omit=dev` in plugin dir; runtime deps must live in `dependencies`. Avoid `workspace:*` in `dependencies` (npm install breaks); put `aren` in `devDependencies` or `peerDependencies` instead (runtime resolves `aren/plugin-sdk` via jiti alias).
-- Installers served from `https://aren.engineer/*`: live in the sibling repo `../aren.engineer` (`public/install.sh`, `public/install-cli.sh`, `public/install.ps1`).
+- Installers served from `https://aren.ai/*`: live in the sibling repo `../aren.ai` (`public/install.sh`, `public/install-cli.sh`, `public/install.ps1`).
 - Messaging channels: always consider **all** built-in + extension channels when refactoring shared logic (routing, allowlists, pairing, command gating, onboarding, docs).
   - Core channel docs: `docs/channels/`
   - Core channel code: `src/telegram`, `src/discord`, `src/slack`, `src/signal`, `src/imessage`, `src/web` (WhatsApp web), `src/channels`, `src/routing`
@@ -19,13 +19,13 @@
 
 ## Docs Linking (Mintlify)
 
-- Docs are hosted on Mintlify (docs.aren.engineer).
+- Docs are hosted on Mintlify (docs.aren.ai).
 - Internal doc links in `docs/**/*.md`: root-relative, no `.md`/`.mdx` (example: `[Config](/configuration)`).
 - Section cross-references: use anchors on root-relative paths (example: `[Hooks](/configuration#hooks)`).
 - Doc headings and anchors: avoid em dashes and apostrophes in headings because they break Mintlify anchor links.
-- When Peter asks for links, reply with full `https://docs.aren.engineer/...` URLs (not root-relative).
-- When you touch docs, end the reply with the `https://docs.aren.engineer/...` URLs you referenced.
-- README (GitHub): keep absolute docs URLs (`https://docs.aren.engineer/...`) so links work on GitHub.
+- When Peter asks for links, reply with full `https://docs.aren.ai/...` URLs (not root-relative).
+- When you touch docs, end the reply with the `https://docs.aren.ai/...` URLs you referenced.
+- README (GitHub): keep absolute docs URLs (`https://docs.aren.ai/...`) so links work on GitHub.
 - Docs content must be generic: no personal device names/hostnames/paths; use placeholders like `user@gateway-host` and “gateway host”.
 
 ## exe.dev VM ops (general)
@@ -50,13 +50,13 @@
 - Node remains supported for running built output (`dist/*`) and production installs.
 - Mac packaging (dev): `scripts/package-mac-app.sh` defaults to current arch. Release checklist: `docs/platforms/mac/release.md`.
 - Type-check/build: `pnpm build`
-- Lint/format: `pnpm lint` (oxlint), `pnpm format` (oxfmt)
+- Lint/format: `pnpm check`
 - Tests: `pnpm test` (vitest); coverage: `pnpm test:coverage`
 
 ## Coding Style & Naming Conventions
 
 - Language: TypeScript (ESM). Prefer strict typing; avoid `any`.
-- Formatting/linting via Oxlint and Oxfmt; run `pnpm lint` before commits.
+- Formatting/linting via Oxlint and Oxfmt; run `pnpm check` before commits.
 - Add brief code comments for tricky or non-obvious logic.
 - Keep files concise; extract helpers instead of “V2” copies. Use existing patterns for CLI options and dependency injection via `createDefaultDeps`.
 - Aim to keep files under ~700 LOC; guideline only (not a hard guardrail). Split/refactor when it improves clarity or testability.
@@ -105,7 +105,7 @@
 ### PR Workflow (Review vs Land)
 
 - **Review mode (PR link only):** read `gh pr view/diff`; **do not** switch branches; **do not** change code.
-- **Landing mode:** create an integration branch from `main`, bring in PR commits (**prefer rebase** for linear history; **merge allowed** when complexity/conflicts make it safer), apply fixes, add changelog (+ thanks + PR #), run full gate **locally before committing** (`pnpm lint && pnpm build && pnpm test`), commit, merge back to `main`, then `git switch main` (never stay on a topic branch after landing). Important: contributor needs to be in git graph after this!
+- **Landing mode:** create an integration branch from `main`, bring in PR commits (**prefer rebase** for linear history; **merge allowed** when complexity/conflicts make it safer), apply fixes, add changelog (+ thanks + PR #), run full gate **locally before committing** (`pnpm build && pnpm check && pnpm test`), commit, merge back to `main`, then `git switch main` (never stay on a topic branch after landing). Important: contributor needs to be in git graph after this!
 
 ## Security & Configuration Tips
 
@@ -123,7 +123,7 @@
 
 - Vocabulary: "makeup" = "mac app".
 - Never edit `node_modules` (global/Homebrew/npm/git installs too). Updates overwrite. Skill notes go in `tools.md` or `AGENTS.md`.
-- Signal: "update fly" => `fly ssh console -a flawd-bot -C "bash -lc 'cd /data/aren/aren && git pull --rebase origin main'"` then `fly machines restart e825232f34d058 -a flawd-bot`.
+- Signal: "update fly" => `fly ssh console -a flawd-bot -C "bash -lc 'cd /data/clawd/aren && git pull --rebase origin main'"` then `fly machines restart e825232f34d058 -a flawd-bot`.
 - When working on a GitHub Issue or PR, print the full URL at the end of the task.
 - When answering questions, respond with high-confidence answers only: verify in code; do not guess.
 - Never update the Carbon dependency.

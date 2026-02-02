@@ -1,6 +1,6 @@
 {
   "name": "@aren/tlon",
-  "version": "2026.1.30",
+  "version": "2026.2.1",
   "description": "Aren Tlon/Urbit channel plugin",
   "type": "module",
   "dependencies": {

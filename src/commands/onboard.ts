@@ -44,7 +44,7 @@ export async function onboardCommand(opts: OnboardOptions, runtime: RuntimeEnv =
     runtime.error(
       [
         "Non-interactive onboarding requires explicit risk acknowledgement.",
-        "Read: https://docs.aren.engineer/security",
+        "Read: https://docs.aren.ai/security",
         `Re-run with: ${formatCliCommand("aren onboard --non-interactive --accept-risk ...")}`,
       ].join("\n"),
     );
@@ -66,7 +66,7 @@ export async function onboardCommand(opts: OnboardOptions, runtime: RuntimeEnv =
         "Windows detected — Aren runs great on WSL2!",
         "Native Windows might be trickier.",
         "Quick setup: wsl --install (one command, one reboot)",
-        "Guide: https://docs.aren.engineer/windows",
+        "Guide: https://docs.aren.ai/windows",
       ].join("\n"),
     );
   }

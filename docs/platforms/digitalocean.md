@@ -67,7 +67,7 @@ curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
 apt install -y nodejs
 
 # Install Aren
-curl -fsSL https://aren.engineer/install.sh | bash
+curl -fsSL https://aren.ai/install.sh | bash
 
 # Verify
 aren --version

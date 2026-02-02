@@ -1,6 +1,6 @@
 {
   "name": "@aren/telegram",
-  "version": "2026.1.30",
+  "version": "2026.2.1",
   "description": "Aren Telegram channel plugin",
   "type": "module",
   "devDependencies": {

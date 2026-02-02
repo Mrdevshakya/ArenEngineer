@@ -100,7 +100,7 @@ async function promptWebToolsConfig(
     [
       "Web search lets your agent look things up online using the `web_search` tool.",
       "It requires a Brave Search API key (you can store it in the config or set BRAVE_API_KEY in the Gateway environment).",
-      "Docs: https://docs.aren.engineer/tools/web",
+      "Docs: https://docs.aren.ai/tools/web",
     ].join("\n"),
     "Web search",
   );
@@ -136,7 +136,7 @@ async function promptWebToolsConfig(
         [
           "No key stored yet, so web_search will stay unavailable.",
           "Store a key here or set BRAVE_API_KEY in the Gateway environment.",
-          "Docs: https://docs.aren.engineer/tools/web",
+          "Docs: https://docs.aren.ai/tools/web",
         ].join("\n"),
         "Web search",
       );
@@ -189,7 +189,7 @@ export async function runConfigureWizard(
           [
             ...snapshot.issues.map((iss) => `- ${iss.path}: ${iss.message}`),
             "",
-            "Docs: https://docs.aren.engineer/gateway/configuration",
+            "Docs: https://docs.aren.ai/gateway/configuration",
           ].join("\n"),
           "Config issues",
         );
@@ -393,8 +393,8 @@ export async function runConfigureWizard(
           note(
             [
               "Docs:",
-              "https://docs.aren.engineer/gateway/health",
-              "https://docs.aren.engineer/gateway/troubleshooting",
+              "https://docs.aren.ai/gateway/health",
+              "https://docs.aren.ai/gateway/troubleshooting",
             ].join("\n"),
             "Health check help",
           );
@@ -520,8 +520,8 @@ export async function runConfigureWizard(
             note(
               [
                 "Docs:",
-                "https://docs.aren.engineer/gateway/health",
-                "https://docs.aren.engineer/gateway/troubleshooting",
+                "https://docs.aren.ai/gateway/health",
+                "https://docs.aren.ai/gateway/troubleshooting",
               ].join("\n"),
               "Health check help",
             );
@@ -579,7 +579,7 @@ export async function runConfigureWizard(
         `Web UI: ${links.httpUrl}`,
         `Gateway WS: ${links.wsUrl}`,
         gatewayStatusLine,
-        "Docs: https://docs.aren.engineer/web/control-ui",
+        "Docs: https://docs.aren.ai/web/control-ui",
       ].join("\n"),
       "Control UI",
     );

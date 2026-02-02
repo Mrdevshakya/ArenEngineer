@@ -66,5 +66,5 @@ If you only want to reset sessions, delete `agents/<agentId>/sessions/` and `age
 
 ## References
 
-- https://docs.aren.engineer/testing
-- https://docs.aren.engineer/start/getting-started
+- https://docs.aren.ai/testing
+- https://docs.aren.ai/start/getting-started

@@ -1,6 +1,6 @@
 {
   "name": "@aren/google-antigravity-auth",
-  "version": "2026.1.30",
+  "version": "2026.2.1",
   "description": "Aren Google Antigravity OAuth provider plugin",
   "type": "module",
   "devDependencies": {

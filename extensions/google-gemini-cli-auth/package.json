@@ -1,6 +1,6 @@
 {
   "name": "@aren/google-gemini-cli-auth",
-  "version": "2026.1.30",
+  "version": "2026.2.1",
   "description": "Aren Gemini CLI OAuth provider plugin",
   "type": "module",
   "devDependencies": {

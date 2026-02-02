@@ -27,7 +27,7 @@ export function registerWebhooksCli(program: Command) {
     .addHelpText(
       "after",
       () =>
-        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/webhooks", "docs.aren.engineer/cli/webhooks")}\n`,
+        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/webhooks", "docs.aren.ai/cli/webhooks")}\n`,
     );
 
   const gmail = webhooks.command("gmail").description("Gmail Pub/Sub hooks (via gogcli)");

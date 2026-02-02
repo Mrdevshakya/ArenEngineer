@@ -2,7 +2,7 @@
 
 Small persona swap hook for Aren.
 
-Docs: https://docs.aren.engineer/hooks/soul-evil
+Docs: https://docs.aren.ai/hooks/soul-evil
 
 ## Setup
 

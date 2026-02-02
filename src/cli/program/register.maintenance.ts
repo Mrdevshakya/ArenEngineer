@@ -15,7 +15,7 @@ export function registerMaintenanceCommands(program: Command) {
     .addHelpText(
       "after",
       () =>
-        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/doctor", "docs.aren.engineer/cli/doctor")}\n`,
+        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/doctor", "docs.aren.ai/cli/doctor")}\n`,
     )
     .option("--no-workspace-suggestions", "Disable workspace memory system suggestions", false)
     .option("--yes", "Accept defaults without prompting", false)
@@ -45,7 +45,7 @@ export function registerMaintenanceCommands(program: Command) {
     .addHelpText(
       "after",
       () =>
-        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/dashboard", "docs.aren.engineer/cli/dashboard")}\n`,
+        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/dashboard", "docs.aren.ai/cli/dashboard")}\n`,
     )
     .option("--no-open", "Print URL but do not launch a browser", false)
     .action(async (opts) => {
@@ -62,7 +62,7 @@ export function registerMaintenanceCommands(program: Command) {
     .addHelpText(
       "after",
       () =>
-        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/reset", "docs.aren.engineer/cli/reset")}\n`,
+        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/reset", "docs.aren.ai/cli/reset")}\n`,
     )
     .option("--scope <scope>", "config|config+creds+sessions|full (default: interactive prompt)")
     .option("--yes", "Skip confirmation prompts", false)
@@ -85,7 +85,7 @@ export function registerMaintenanceCommands(program: Command) {
     .addHelpText(
       "after",
       () =>
-        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/uninstall", "docs.aren.engineer/cli/uninstall")}\n`,
+        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/uninstall", "docs.aren.ai/cli/uninstall")}\n`,
     )
     .option("--service", "Remove the gateway service", false)
     .option("--state", "Remove state + config", false)

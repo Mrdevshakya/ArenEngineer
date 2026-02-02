@@ -105,7 +105,7 @@ export function registerDnsCli(program: Command) {
     .description("DNS helpers for wide-area discovery (Tailscale + CoreDNS)")
     .addHelpText(
       "after",
-      () => `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/dns", "docs.aren.engineer/cli/dns")}\n`,
+      () => `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/dns", "docs.aren.ai/cli/dns")}\n`,
     );
 
   dns

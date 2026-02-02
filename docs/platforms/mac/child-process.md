@@ -18,8 +18,8 @@ If you need tighter coupling to the UI, run the Gateway manually in a terminal.
 
 ## Default behavior (launchd)
 
-- The app installs a per‑user LaunchAgent labeled `bot.aren.gateway`
-  (or `bot.aren.<profile>` when using `--profile`/`AREN_PROFILE`; legacy `com.aren.*` is supported).
+- The app installs a per‑user LaunchAgent labeled `arent.gateway`
+  (or `arent.<profile>` when using `--profile`/`AREN_PROFILE`; legacy `bot.aren.*` is supported).
 - When Local mode is enabled, the app ensures the LaunchAgent is loaded and
   starts the Gateway if needed.
 - Logs are written to the launchd gateway log path (visible in Debug Settings).
@@ -27,11 +27,11 @@ If you need tighter coupling to the UI, run the Gateway manually in a terminal.
 Common commands:
 
 ```bash
-launchctl kickstart -k gui/$UID/bot.aren.gateway
-launchctl bootout gui/$UID/bot.aren.gateway
+launchctl kickstart -k gui/$UID/arent.gateway
+launchctl bootout gui/$UID/arent.gateway
 ```
 
-Replace the label with `bot.aren.<profile>` when running a named profile.
+Replace the label with `arent.<profile>` when running a named profile.
 
 ## Unsigned dev builds
 

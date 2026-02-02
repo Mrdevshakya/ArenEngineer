@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-INSTALL_URL="${AREN_INSTALL_URL:-${AREN_INSTALL_URL:-https://aren.engineer/install.sh}}"
+INSTALL_URL="${AREN_INSTALL_URL:-${AREN_INSTALL_URL:-https://aren.bot/install.sh}}"
 MODELS_MODE="${AREN_E2E_MODELS:-${AREN_E2E_MODELS:-both}}" # both|openai|anthropic
 INSTALL_TAG="${AREN_INSTALL_TAG:-${AREN_INSTALL_TAG:-latest}}"
 E2E_PREVIOUS_VERSION="${AREN_INSTALL_E2E_PREVIOUS:-${AREN_INSTALL_E2E_PREVIOUS:-}}"

@@ -14,7 +14,7 @@ export function registerSetupCommand(program: Command) {
     .addHelpText(
       "after",
       () =>
-        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/setup", "docs.aren.engineer/cli/setup")}\n`,
+        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/setup", "docs.aren.ai/cli/setup")}\n`,
     )
     .option(
       "--workspace <dir>",

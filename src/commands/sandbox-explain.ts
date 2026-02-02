@@ -30,7 +30,7 @@ type SandboxExplainOptions = {
   json: boolean;
 };
 
-const SANDBOX_DOCS_URL = "https://docs.aren.engineer/sandbox";
+const SANDBOX_DOCS_URL = "https://docs.aren.ai/sandbox";
 
 function normalizeExplainSessionKey(params: {
   cfg: ArenConfig;
@@ -331,7 +331,7 @@ export async function sandboxExplainCommand(
     lines.push(`  - ${key}`);
   }
   lines.push("");
-  lines.push(`${key("Docs:")} ${formatDocsLink("/sandbox", "docs.aren.engineer/sandbox")}`);
+  lines.push(`${key("Docs:")} ${formatDocsLink("/sandbox", "docs.aren.ai/sandbox")}`);
 
   runtime.log(`${lines.join("\n")}\n`);
 }

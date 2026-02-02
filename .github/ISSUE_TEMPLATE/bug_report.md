@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report a problem or unexpected behavior in Arenbot.
+about: Report a problem or unexpected behavior in Aren.
 title: "[Bug]: "
 labels: bug
 ---
@@ -25,7 +25,7 @@ What actually happened?
 
 ## Environment
 
-- Arenbot version:
+- Aren version:
 - OS:
 - Install method (pnpm/npx/docker/etc):
 

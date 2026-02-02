@@ -29,6 +29,7 @@ import {
 import {
   detectGlobalInstallManagerByPresence,
   detectGlobalInstallManagerForRoot,
+  cleanupGlobalRenameDirs,
   globalInstallArgs,
   resolveGlobalPackageRoot,
   type GlobalInstallManager,
@@ -95,7 +96,7 @@ const UPDATE_QUIPS = [
   "I've evolved. Try to keep up.",
   "New version, who dis? Oh right, still me but shinier.",
   "Patched, polished, and ready to pinch. Let's go.",
-  "The lobster has arened. Harder shell, sharper claws.",
+  "The lobster has Arened. Harder shell, sharper claws.",
   "Update done! Check the changelog or just trust me, it's good.",
   "Reborn from the boiling waters of npm. Stronger now.",
   "I went away and came back smarter. You should try it sometime.",
@@ -736,6 +737,12 @@ export async function updateCommand(opts: UpdateCommandOptions): Promise<void> {
       (pkgRoot ? await readPackageName(pkgRoot) : await readPackageName(root)) ??
       DEFAULT_PACKAGE_NAME;
     const beforeVersion = pkgRoot ? await readPackageVersion(pkgRoot) : null;
+    if (pkgRoot) {
+      await cleanupGlobalRenameDirs({
+        globalRoot: path.dirname(pkgRoot),
+        packageName,
+      });
+    }
     const updateStep = await runUpdateStep({
       name: "global update",
       argv: globalInstallArgs(manager, `${packageName}@${tag}`),
@@ -1193,7 +1200,7 @@ ${theme.heading("Notes:")}
   - Downgrades require confirmation (can break configuration)
   - Skips update if the working directory has uncommitted changes
 
-${theme.muted("Docs:")} ${formatDocsLink("/cli/update", "docs.aren.engineer/cli/update")}`;
+${theme.muted("Docs:")} ${formatDocsLink("/cli/update", "docs.aren.ai/cli/update")}`;
     })
     .action(async (opts) => {
       try {
@@ -1217,7 +1224,7 @@ ${theme.muted("Docs:")} ${formatDocsLink("/cli/update", "docs.aren.engineer/cli/
     .option("--timeout <seconds>", "Timeout for each update step in seconds (default: 1200)")
     .addHelpText(
       "after",
-      `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/update", "docs.aren.engineer/cli/update")}\n`,
+      `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/update", "docs.aren.ai/cli/update")}\n`,
     )
     .action(async (opts) => {
       try {
@@ -1246,7 +1253,7 @@ ${theme.muted("Docs:")} ${formatDocsLink("/cli/update", "docs.aren.engineer/cli/
           "- Shows current update channel (stable/beta/dev) and source",
         )}\n${theme.muted("- Includes git tag/branch/SHA for source checkouts")}\n\n${theme.muted(
           "Docs:",
-        )} ${formatDocsLink("/cli/update", "docs.aren.engineer/cli/update")}`,
+        )} ${formatDocsLink("/cli/update", "docs.aren.ai/cli/update")}`,
     )
     .action(async (opts) => {
       try {

@@ -126,7 +126,7 @@ export function registerGatewayCli(program: Command) {
       .addHelpText(
         "after",
         () =>
-          `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/gateway", "docs.aren.engineer/cli/gateway")}\n`,
+          `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/gateway", "docs.aren.ai/cli/gateway")}\n`,
       ),
   );
 

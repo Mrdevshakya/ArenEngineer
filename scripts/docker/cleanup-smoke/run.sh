@@ -6,6 +6,9 @@ cd /repo
 export AREN_STATE_DIR="/tmp/aren-test"
 export AREN_CONFIG_PATH="${AREN_STATE_DIR}/aren.json"
 
+echo "==> Build"
+pnpm build
+
 echo "==> Seed state"
 mkdir -p "${AREN_STATE_DIR}/credentials"
 mkdir -p "${AREN_STATE_DIR}/agents/main/sessions"

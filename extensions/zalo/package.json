@@ -1,11 +1,11 @@
 {
   "name": "@aren/zalo",
-  "version": "2026.1.30",
+  "version": "2026.2.1",
   "description": "Aren Zalo channel plugin",
   "type": "module",
   "dependencies": {
     "aren": "workspace:*",
-    "undici": "7.19.2"
+    "undici": "7.20.0"
   },
   "devDependencies": {
     "aren": "workspace:*"

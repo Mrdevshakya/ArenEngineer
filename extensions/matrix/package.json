@@ -1,6 +1,6 @@
 {
   "name": "@aren/matrix",
-  "version": "2026.1.30",
+  "version": "2026.2.1",
   "description": "Aren Matrix channel plugin",
   "type": "module",
   "dependencies": {

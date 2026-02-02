@@ -76,7 +76,7 @@ export function registerChannelsCli(program: Command) {
       () =>
         `\n${theme.muted("Docs:")} ${formatDocsLink(
           "/cli/channels",
-          "docs.aren.engineer/cli/channels",
+          "docs.aren.ai/cli/channels",
         )}\n`,
     );
 

@@ -50,7 +50,7 @@ export function resolveStateDir(
   env: NodeJS.ProcessEnv = process.env,
   homedir: () => string = os.homedir,
 ): string {
-  const override = env.AREN_STATE_DIR?.trim() || env.AREN_STATE_DIR?.trim();
+  const override = env.AREN_STATE_DIR?.trim();
   if (override) {
     return resolveUserPath(override);
   }
@@ -96,7 +96,7 @@ export function resolveCanonicalConfigPath(
   env: NodeJS.ProcessEnv = process.env,
   stateDir: string = resolveStateDir(env, os.homedir),
 ): string {
-  const override = env.AREN_CONFIG_PATH?.trim() || env.AREN_CONFIG_PATH?.trim();
+  const override = env.AREN_CONFIG_PATH?.trim();
   if (override) {
     return resolveUserPath(override);
   }
@@ -172,13 +172,13 @@ export function resolveDefaultConfigCandidates(
   env: NodeJS.ProcessEnv = process.env,
   homedir: () => string = os.homedir,
 ): string[] {
-  const explicit = env.AREN_CONFIG_PATH?.trim() || env.AREN_CONFIG_PATH?.trim();
+  const explicit = env.AREN_CONFIG_PATH?.trim();
   if (explicit) {
     return [resolveUserPath(explicit)];
   }
 
   const candidates: string[] = [];
-  const arenStateDir = env.AREN_STATE_DIR?.trim() || env.AREN_STATE_DIR?.trim();
+  const arenStateDir = env.AREN_STATE_DIR?.trim();
   if (arenStateDir) {
     const resolved = resolveUserPath(arenStateDir);
     candidates.push(path.join(resolved, CONFIG_FILENAME));
@@ -237,7 +237,7 @@ export function resolveGatewayPort(
   cfg?: ArenConfig,
   env: NodeJS.ProcessEnv = process.env,
 ): number {
-  const envRaw = env.AREN_GATEWAY_PORT?.trim() || env.AREN_GATEWAY_PORT?.trim();
+  const envRaw = env.AREN_GATEWAY_PORT?.trim();
   if (envRaw) {
     const parsed = Number.parseInt(envRaw, 10);
     if (Number.isFinite(parsed) && parsed > 0) {

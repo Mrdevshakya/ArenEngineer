@@ -56,7 +56,7 @@ Windows: use **WSL2** (Ubuntu recommended). WSL2 is strongly recommended; native
 ## 1) Install the CLI (recommended)
 
 ```bash
-curl -fsSL https://aren.engineer/install.sh | bash
+curl -fsSL https://aren.ai/install.sh | bash
 ```
 
 Installer options (install method, non-interactive, from GitHub): [Install](/install).
@@ -64,7 +64,7 @@ Installer options (install method, non-interactive, from GitHub): [Install](/ins
 Windows (PowerShell):
 
 ```powershell
-iwr -useb https://aren.engineer/install.ps1 | iex
+iwr -useb https://aren.ai/install.ps1 | iex
 ```
 
 Alternative (global install):

@@ -1,6 +1,6 @@
 {
   "name": "@aren/voice-call",
-  "version": "2026.1.30",
+  "version": "2026.2.1",
   "description": "Aren voice-call plugin",
   "type": "module",
   "dependencies": {

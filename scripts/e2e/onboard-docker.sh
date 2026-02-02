@@ -280,7 +280,7 @@ TRASH
       --skip-health
 
     # Assert config + workspace scaffolding.
-    workspace_dir="$HOME/aren"
+    workspace_dir="$HOME/.aren/workspace"
     config_path="$HOME/.aren/aren.json"
     sessions_dir="$HOME/.aren/agents/main/sessions"
 

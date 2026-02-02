@@ -46,7 +46,7 @@ ${formatHelpExamples([
   ],
 ])}
 
-${theme.muted("Docs:")} ${formatDocsLink("/cli/message", "docs.aren.engineer/cli/message")}`,
+${theme.muted("Docs:")} ${formatDocsLink("/cli/message", "docs.aren.ai/cli/message")}`,
     )
     .action(() => {
       message.help({ error: true });

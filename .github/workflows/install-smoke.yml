@@ -32,8 +32,8 @@ jobs:
 
       - name: Run installer docker tests
         env:
-          AREN_INSTALL_URL: https://aren.engineer/install.sh
-          AREN_INSTALL_CLI_URL: https://aren.engineer/install-cli.sh
+          AREN_INSTALL_URL: https://aren.ai/install.sh
+          AREN_INSTALL_CLI_URL: https://aren.ai/install-cli.sh
           AREN_NO_ONBOARD: "1"
           AREN_INSTALL_SMOKE_SKIP_CLI: "1"
           AREN_INSTALL_SMOKE_SKIP_NONROOT: ${{ github.event_name == 'pull_request' && '1' || '0' }}

@@ -80,7 +80,7 @@ Multi-account config (advanced):
 
 ## Full documentation
 
-See https://docs.aren.engineer/channels/twitch for:
+See https://docs.aren.ai/channels/twitch for:
 
 - Token refresh setup
 - Access control patterns

@@ -169,7 +169,7 @@ export async function setupSkills(
         runtime.log(
           `Tip: run \`${formatCliCommand("aren doctor")}\` to review skills + requirements.`,
         );
-        runtime.log("Docs: https://docs.aren.engineer/skills");
+        runtime.log("Docs: https://docs.aren.ai/skills");
       }
     }
   }

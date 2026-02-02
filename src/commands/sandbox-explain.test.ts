@@ -36,7 +36,7 @@ describe("sandbox explain command", () => {
 
     const out = logs.join("");
     const parsed = JSON.parse(out);
-    expect(parsed).toHaveProperty("docsUrl", "https://docs.aren.engineer/sandbox");
+    expect(parsed).toHaveProperty("docsUrl", "https://docs.aren.ai/sandbox");
     expect(parsed).toHaveProperty("sandbox.mode", "all");
     expect(parsed).toHaveProperty("sandbox.tools.sources.allow.source");
     expect(Array.isArray(parsed.fixIt)).toBe(true);

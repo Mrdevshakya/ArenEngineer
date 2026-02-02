@@ -7,7 +7,7 @@ import process from "node:process";
 const args = process.argv.slice(2);
 const env = { ...process.env };
 const cwd = process.cwd();
-const compilerOverride = env.AREN_TS_COMPILER ?? env.AREN_TS_COMPILER;
+const compilerOverride = env.AREN_TS_COMPILER ?? env.Aren_TS_COMPILER;
 const compiler = compilerOverride === "tsc" ? "tsc" : "tsgo";
 const projectArgs = ["--project", "tsconfig.json"];
 

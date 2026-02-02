@@ -13,7 +13,7 @@ export function registerDocsCli(program: Command) {
     .addHelpText(
       "after",
       () =>
-        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/docs", "docs.aren.engineer/cli/docs")}\n`,
+        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/docs", "docs.aren.ai/cli/docs")}\n`,
     )
     .action(async (queryParts: string[]) => {
       await runCommandWithRuntime(defaultRuntime, async () => {

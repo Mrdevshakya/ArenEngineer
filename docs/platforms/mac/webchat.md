@@ -22,7 +22,7 @@ agent (with a session switcher for other sessions).
   ```bash
   dist/Aren.app/Contents/MacOS/Aren --webchat
   ```
-- Logs: `./scripts/clawlog.sh` (subsystem `bot.aren`, category `WebChatSwiftUI`).
+- Logs: `./scripts/clawlog.sh` (subsystem `arent`, category `WebChatSwiftUI`).
 
 ## How it’s wired
 

@@ -304,7 +304,7 @@ Assume “compromised” means: someone got into a room that can trigger the bot
 
 ### The `find ~` Incident 🦞
 
-On Day 1, a friendly tester asked Aren to run `find ~` and share the output. Aren happily dumped the entire home directory structure to a group chat.
+On Day 1, a friendly tester asked Clawd to run `find ~` and share the output. Clawd happily dumped the entire home directory structure to a group chat.
 
 **Lesson:** Even "innocent" requests can leak sensitive info. Directory structures reveal project names, tool configs, and system layout.
 
@@ -788,7 +788,7 @@ Commit the updated `.secrets.baseline` once it reflects the intended state.
 Owner (Peter)
   │ Full trust
   ▼
-AI (Aren)
+AI (Clawd)
   │ Trust but verify
   ▼
 Friends in allowlist
@@ -805,7 +805,7 @@ Mario asking for find ~
 
 Found a vulnerability in Aren? Please report responsibly:
 
-1. Email: security@aren.engineer
+1. Email: security@aren.ai
 2. Don't post publicly until fixed
 3. We'll credit you (unless you prefer anonymity)
 

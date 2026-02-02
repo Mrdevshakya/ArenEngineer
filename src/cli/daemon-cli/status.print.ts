@@ -317,5 +317,5 @@ export function printDaemonStatus(status: DaemonStatus, opts: { json: boolean })
   }
 
   defaultRuntime.log(`${label("Troubles:")} run ${formatCliCommand("aren status")}`);
-  defaultRuntime.log(`${label("Troubleshooting:")} https://docs.aren.engineer/troubleshooting`);
+  defaultRuntime.log(`${label("Troubleshooting:")} https://docs.aren.ai/troubleshooting`);
 }

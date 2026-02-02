@@ -31,7 +31,7 @@ Shelley, [exe.dev](https://exe.dev)'s agent, can install Aren instantly with our
 prompt. The prompt used is as below:
 
 ```
-Set up Aren (https://docs.aren.engineer/install) on this VM. Use the non-interactive and accept-risk flags for aren onboarding. Add the supplied auth or token as needed. Configure nginx to forward from the default port 18789 to the root location on the default enabled site config, making sure to enable Websocket support. Pairing is done by "aren devices list" and "aren device approve <request id>". Make sure the dashboard shows that Aren's health is OK. exe.dev handles forwarding from port 8000 to port 80/443 and HTTPS for us, so the final "reachable" should be <vm-name>.exe.xyz, without port specification.
+Set up Aren (https://docs.aren.ai/install) on this VM. Use the non-interactive and accept-risk flags for aren onboarding. Add the supplied auth or token as needed. Configure nginx to forward from the default port 18789 to the root location on the default enabled site config, making sure to enable Websocket support. Pairing is done by "aren devices list" and "aren device approve <request id>". Make sure the dashboard shows that Aren's health is OK. exe.dev handles forwarding from port 8000 to port 80/443 and HTTPS for us, so the final "reachable" should be <vm-name>.exe.xyz, without port specification.
 ```
 
 ## Manual installation
@@ -64,7 +64,7 @@ sudo apt-get install -y git curl jq ca-certificates openssl
 Run the Aren install script:
 
 ```bash
-curl -fsSL https://aren.engineer/install.sh | bash
+curl -fsSL https://aren.ai/install.sh | bash
 ```
 
 ## 4) Setup nginx to proxy Aren to port 8000

@@ -20,7 +20,7 @@ Quick answers plus deeper troubleshooting for real-world setups (local dev, VPS,
   - [It is stuck on "wake up my friend" / onboarding will not hatch. What now?](#it-is-stuck-on-wake-up-my-friend-onboarding-will-not-hatch-what-now)
   - [Can I migrate my setup to a new machine (Mac mini) without redoing onboarding?](#can-i-migrate-my-setup-to-a-new-machine-mac-mini-without-redoing-onboarding)
   - [Where do I see what’s new in the latest version?](#where-do-i-see-whats-new-in-the-latest-version)
-  - [I can't access docs.aren.engineer (SSL error). What now?](#i-cant-access-docsarenai-ssl-error-what-now)
+  - [I can't access docs.aren.ai (SSL error). What now?](#i-cant-access-docsarenai-ssl-error-what-now)
   - [What’s the difference between stable and beta?](#whats-the-difference-between-stable-and-beta)
 - [How do I install the beta version, and what’s the difference between beta and dev?](#how-do-i-install-the-beta-version-and-whats-the-difference-between-beta-and-dev)
   - [How do I try the latest bits?](#how-do-i-try-the-latest-bits)
@@ -274,7 +274,7 @@ setup (PATH, services, permissions, auth files). Give them the **full source che
 the hackable (git) install:
 
 ```bash
-curl -fsSL https://aren.engineer/install.sh | bash -s -- --install-method git
+curl -fsSL https://aren.ai/install.sh | bash -s -- --install-method git
 ```
 
 This installs Aren **from a git checkout**, so the agent can read the code + docs and
@@ -313,7 +313,7 @@ Install docs: [Install](/install), [Installer flags](/install/installer), [Updat
 The repo recommends running from source and using the onboarding wizard:
 
 ```bash
-curl -fsSL https://aren.engineer/install.sh | bash
+curl -fsSL https://aren.ai/install.sh | bash
 aren onboard --install-daemon
 ```
 
@@ -438,10 +438,10 @@ Newest entries are at the top. If the top section is marked **Unreleased**, the 
 section is the latest shipped version. Entries are grouped by **Highlights**, **Changes**, and
 **Fixes** (plus docs/other sections when needed).
 
-### I cant access docs.aren.engineer SSL error What now
+### I cant access docs.aren.ai SSL error What now
 
-Some Comcast/Xfinity connections incorrectly block `docs.aren.engineer` via Xfinity
-Advanced Security. Disable it or allowlist `docs.aren.engineer`, then retry. More
+Some Comcast/Xfinity connections incorrectly block `docs.aren.ai` via Xfinity
+Advanced Security. Disable it or allowlist `docs.aren.ai`, then retry. More
 detail: [Troubleshooting](/help/troubleshooting#docsarenai-shows-an-ssl-error-comcastxfinity).
 Please help us unblock it by reporting here: https://spa.xfinity.com/check_url_status.
 
@@ -470,15 +470,15 @@ https://github.com/aren/aren/blob/main/CHANGELOG.md
 One‑liners (macOS/Linux):
 
 ```bash
-curl -fsSL --proto '=https' --tlsv1.2 https://aren.engineer/install.sh | bash -s -- --beta
+curl -fsSL --proto '=https' --tlsv1.2 https://aren.ai/install.sh | bash -s -- --beta
 ```
 
 ```bash
-curl -fsSL --proto '=https' --tlsv1.2 https://aren.engineer/install.sh | bash -s -- --install-method git
+curl -fsSL --proto '=https' --tlsv1.2 https://aren.ai/install.sh | bash -s -- --install-method git
 ```
 
 Windows installer (PowerShell):
-https://aren.engineer/install.ps1
+https://aren.ai/install.ps1
 
 More detail: [Development channels](/install/development-channels) and [Installer flags](/install/installer).
 
@@ -507,7 +507,7 @@ This switches to the `main` branch and updates from source.
 2. **Hackable install (from the installer site):**
 
 ```bash
-curl -fsSL https://aren.engineer/install.sh | bash -s -- --install-method git
+curl -fsSL https://aren.ai/install.sh | bash -s -- --install-method git
 ```
 
 That gives you a local repo you can edit, then update via git.
@@ -529,19 +529,19 @@ Docs: [Update](/cli/update), [Development channels](/install/development-channel
 Re-run the installer with **verbose output**:
 
 ```bash
-curl -fsSL https://aren.engineer/install.sh | bash -s -- --verbose
+curl -fsSL https://aren.ai/install.sh | bash -s -- --verbose
 ```
 
 Beta install with verbose:
 
 ```bash
-curl -fsSL https://aren.engineer/install.sh | bash -s -- --beta --verbose
+curl -fsSL https://aren.ai/install.sh | bash -s -- --beta --verbose
 ```
 
 For a hackable (git) install:
 
 ```bash
-curl -fsSL https://aren.engineer/install.sh | bash -s -- --install-method git --verbose
+curl -fsSL https://aren.ai/install.sh | bash -s -- --install-method git --verbose
 ```
 
 More options: [Installer flags](/install/installer).
@@ -574,7 +574,7 @@ Use the **hackable (git) install** so you have the full source and docs locally,
 your bot (or Claude/Codex) _from that folder_ so it can read the repo and answer precisely.
 
 ```bash
-curl -fsSL https://aren.engineer/install.sh | bash -s -- --install-method git
+curl -fsSL https://aren.ai/install.sh | bash -s -- --install-method git
 ```
 
 More detail: [Install](/install) and [Installer flags](/install/installer).
@@ -992,7 +992,7 @@ Advantages:
 - **Always-on Gateway** (run on a VPS, interact from anywhere)
 - **Nodes** for local browser/screen/camera/exec
 
-Showcase: https://aren.engineer/showcase
+Showcase: https://aren.ai/showcase
 
 ## Skills and automation
 
@@ -1155,6 +1155,19 @@ You still need to click the extension button on the tab you want to control (it 
 ### Is there a dedicated sandboxing doc
 
 Yes. See [Sandboxing](/gateway/sandboxing). For Docker-specific setup (full gateway in Docker or sandbox images), see [Docker](/install/docker).
+
+### Docker feels limited How do I enable full features
+
+The default image is security-first and runs as the `node` user, so it does not
+include system packages, Homebrew, or bundled browsers. For a fuller setup:
+
+- Persist `/home/node` with `AREN_HOME_VOLUME` so caches survive.
+- Bake system deps into the image with `AREN_DOCKER_APT_PACKAGES`.
+- Install Playwright browsers via the bundled CLI:
+  `node /app/node_modules/playwright-core/cli.js install chromium`
+- Set `PLAYWRIGHT_BROWSERS_PATH` and ensure the path is persisted.
+
+Docs: [Docker](/install/docker), [Browser](/tools/browser).
 
 **Can I keep DMs personal but make groups public sandboxed with one agent**
 
@@ -2415,7 +2428,7 @@ Quick setup (recommended):
 - Set a unique `gateway.port` in each profile config (or pass `--port` for manual runs).
 - Install a per-profile service: `aren --profile <name> gateway install`.
 
-Profiles also suffix service names (`bot.aren.<profile>`; legacy `com.aren.*`, `aren-gateway-<profile>.service`, `Aren Gateway (<profile>)`).
+Profiles also suffix service names (`arent.<profile>`; legacy `bot.aren.*`, `aren-gateway-<profile>.service`, `Aren Gateway (<profile>)`).
 Full guide: [Multiple gateways](/gateway/multiple-gateways).
 
 ### What does invalid handshake code 1008 mean
@@ -2820,4 +2833,4 @@ You can add options like `debounce:2s cap:25 drop:summarize` for followup modes.
 
 ---
 
-Still stuck? Ask in [Discord](https://discord.com/invite/aren) or open a [GitHub discussion](https://github.com/aren/aren/discussions).
+Still stuck? Ask in [Discord](https://discord.com/invite/clawd) or open a [GitHub discussion](https://github.com/aren/aren/discussions).

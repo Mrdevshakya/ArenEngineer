@@ -30,7 +30,7 @@ export function registerBrowserCli(program: Command) {
           true,
         )}\n\n${theme.muted("Docs:")} ${formatDocsLink(
           "/cli/browser",
-          "docs.aren.engineer/cli/browser",
+          "docs.aren.ai/cli/browser",
         )}\n`,
     )
     .action(() => {

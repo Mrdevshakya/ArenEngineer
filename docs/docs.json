@@ -362,15 +362,15 @@
       "destination": "/nodes/camera"
     },
     {
-      "source": "/aren",
+      "source": "/clawd",
       "destination": "/start/aren"
     },
     {
-      "source": "/start/aren",
+      "source": "/start/clawd",
       "destination": "/start/aren"
     },
     {
-      "source": "/start/aren/",
+      "source": "/start/clawd/",
       "destination": "/start/aren"
     },
     {
@@ -378,11 +378,11 @@
       "destination": "/tools/clawhub"
     },
     {
-      "source": "/arenhub",
+      "source": "/clawdhub",
       "destination": "/tools/clawhub"
     },
     {
-      "source": "/tools/arenhub",
+      "source": "/tools/clawdhub",
       "destination": "/tools/clawhub"
     },
     {

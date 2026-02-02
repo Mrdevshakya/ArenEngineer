@@ -5,7 +5,7 @@ import { runCommandWithTimeout } from "../process/exec.js";
 import { formatDocsLink } from "../terminal/links.js";
 import { isRich, theme } from "../terminal/theme.js";
 
-const SEARCH_TOOL = "https://docs.aren.engineer/mcp.SearchAren";
+const SEARCH_TOOL = "https://docs.aren.ai/mcp.SearchAren";
 const SEARCH_TIMEOUT_MS = 30_000;
 const DEFAULT_SNIPPET_MAX = 220;
 
@@ -160,13 +160,13 @@ async function renderMarkdown(markdown: string, runtime: RuntimeEnv) {
 export async function docsSearchCommand(queryParts: string[], runtime: RuntimeEnv) {
   const query = queryParts.join(" ").trim();
   if (!query) {
-    const docs = formatDocsLink("/", "docs.aren.engineer");
+    const docs = formatDocsLink("/", "docs.aren.ai");
     if (isRich()) {
       runtime.log(`${theme.muted("Docs:")} ${docs}`);
-      runtime.log(`${theme.muted("Search:")} ${formatCliCommand('aren docs "your query"')}`);
+      runtime.log(`${theme.muted("Search:")} ${formatCliCommand('aren')') docs "your query"')}`);
     } else {
-      runtime.log("Docs: https://docs.aren.engineer/");
-      runtime.log(`Search: ${formatCliCommand('aren docs "your query"')}`);
+      runtime.log("Docs: https://docs.aren.ai/");
+      runtime.log(`Search: ${formatCliCommand('aren')') docs "your query"')}`);
     }
     return;
   }

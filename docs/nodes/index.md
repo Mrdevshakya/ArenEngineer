@@ -61,6 +61,28 @@ On the node machine:
 aren node run --host <gateway-host> --port 18789 --display-name "Build Node"
 ```
 
+### Remote gateway via SSH tunnel (loopback bind)
+
+If the Gateway binds to loopback (`gateway.bind=loopback`, default in local mode),
+remote node hosts cannot connect directly. Create an SSH tunnel and point the
+node host at the local end of the tunnel.
+
+Example (node host -> gateway host):
+
+```bash
+# Terminal A (keep running): forward local 18790 -> gateway 127.0.0.1:18789
+ssh -N -L 18790:127.0.0.1:18789 user@gateway-host
+
+# Terminal B: export the gateway token and connect through the tunnel
+export AREN_GATEWAY_TOKEN="<gateway-token>"
+aren node run --host 127.0.0.1 --port 18790 --display-name "Build Node"
+```
+
+Notes:
+
+- The token is `gateway.auth.token` from the gateway config (`~/.aren/aren.json` on the gateway host).
+- `aren node run` reads `AREN_GATEWAY_TOKEN` for auth.
+
 ### Start a node host (service)
 
 ```bash

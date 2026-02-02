@@ -5,7 +5,7 @@ import type { ArenConfig } from "../../config/config.js";
 import { log } from "./logger.js";
 
 const OPENROUTER_APP_HEADERS: Record<string, string> = {
-  "HTTP-Referer": "https://aren.engineer",
+  "HTTP-Referer": "https://aren.ai",
   "X-Title": "Aren",
 };
 

@@ -32,8 +32,8 @@ apps/ios/*.xcodeproj/
 apps/ios/*.xcworkspace/
 apps/ios/.swiftpm/
 vendor/
-apps/ios/Arenbot.xcodeproj/
-apps/ios/Arenbot.xcodeproj/**
+apps/ios/Aren.xcodeproj/
+apps/ios/Aren.xcodeproj/**
 apps/macos/.build/**
 **/*.bun-build
 apps/ios/*.xcfilelist

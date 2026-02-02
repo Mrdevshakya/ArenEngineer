@@ -241,7 +241,7 @@ _"We're all just playing with our own prompts."_ — an AI, probably high on tok
 
 - **Peter Steinberger** ([@steipete](https://x.com/steipete)) — Creator, lobster whisperer
 - **Mario Zechner** ([@badlogicc](https://x.com/badlogicgames)) — Pi creator, security pen-tester
-- **Aren** — The space lobster who demanded a better name
+- **Clawd** — The space lobster who demanded a better name
 
 ## Core Contributors
 

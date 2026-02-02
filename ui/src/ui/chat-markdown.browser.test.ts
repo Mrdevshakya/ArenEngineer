@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { ArenApp } from "./app";
 
+// oxlint-disable-next-line typescript/unbound-method
 const originalConnect = ArenApp.prototype.connect;
 
 function mountApp(pathname: string) {

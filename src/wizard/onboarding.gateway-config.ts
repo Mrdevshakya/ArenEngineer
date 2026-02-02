@@ -147,7 +147,7 @@ export async function configureGatewayForOnboarding(
   let tailscaleResetOnExit = flow === "quickstart" ? quickstartGateway.tailscaleResetOnExit : false;
   if (tailscaleMode !== "off" && flow !== "quickstart") {
     await prompter.note(
-      ["Docs:", "https://docs.aren.engineer/gateway/tailscale", "https://docs.aren.engineer/web"].join(
+      ["Docs:", "https://docs.aren.ai/gateway/tailscale", "https://docs.aren.ai/web"].join(
         "\n",
       ),
       "Tailscale",

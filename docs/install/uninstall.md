@@ -81,14 +81,14 @@ Use this if the gateway service keeps running but `aren` is missing.
 
 ### macOS (launchd)
 
-Default label is `bot.aren.gateway` (or `bot.aren.<profile>`; legacy `com.aren.*` may still exist):
+Default label is `arent.gateway` (or `arent.<profile>`; legacy `bot.aren.*` may still exist):
 
 ```bash
-launchctl bootout gui/$UID/bot.aren.gateway
-rm -f ~/Library/LaunchAgents/bot.aren.gateway.plist
+launchctl bootout gui/$UID/arent.gateway
+rm -f ~/Library/LaunchAgents/arent.gateway.plist
 ```
 
-If you used a profile, replace the label and plist name with `bot.aren.<profile>`. Remove any legacy `com.aren.*` plists if present.
+If you used a profile, replace the label and plist name with `arent.<profile>`. Remove any legacy `bot.aren.*` plists if present.
 
 ### Linux (systemd user unit)
 
@@ -116,7 +116,7 @@ If you used a profile, delete the matching task name and `~\.aren-<profile>\gate
 
 ### Normal install (install.sh / npm / pnpm / bun)
 
-If you used `https://aren.engineer/install.sh` or `install.ps1`, the CLI was installed with `npm install -g aren@latest`.
+If you used `https://aren.ai/install.sh` or `install.ps1`, the CLI was installed with `npm install -g aren@latest`.
 Remove it with `npm rm -g aren` (or `pnpm remove -g` / `bun remove -g` if you installed that way).
 
 ### Source checkout (git clone)

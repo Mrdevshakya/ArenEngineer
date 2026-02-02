@@ -1,6 +1,6 @@
 {
   "name": "@aren/memory-core",
-  "version": "2026.1.30",
+  "version": "2026.2.1",
   "description": "Aren core memory search plugin",
   "type": "module",
   "devDependencies": {

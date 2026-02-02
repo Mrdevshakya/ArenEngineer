@@ -144,7 +144,7 @@ export async function promptGatewayConfig(
   let tailscaleResetOnExit = false;
   if (tailscaleMode !== "off") {
     note(
-      ["Docs:", "https://docs.aren.engineer/gateway/tailscale", "https://docs.aren.engineer/web"].join(
+      ["Docs:", "https://docs.aren.ai/gateway/tailscale", "https://docs.aren.ai/web"].join(
         "\n",
       ),
       "Tailscale",

@@ -46,7 +46,7 @@ export function registerDirectoryCli(program: Command) {
       () =>
         `\n${theme.muted("Docs:")} ${formatDocsLink(
           "/cli/directory",
-          "docs.aren.engineer/cli/directory",
+          "docs.aren.ai/cli/directory",
         )}\n`,
     )
     .action(() => {
@@ -95,7 +95,7 @@ export function registerDirectoryCli(program: Command) {
           return;
         }
         const tableWidth = Math.max(60, (process.stdout.columns ?? 120) - 1);
-        defaultRuntime.log(`${theme.heading("Self")}`);
+        defaultRuntime.log(theme.heading("Self"));
         defaultRuntime.log(
           renderTable({
             width: tableWidth,

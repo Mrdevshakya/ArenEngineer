@@ -58,7 +58,7 @@ On macOS, the GUI app does not automatically inherit shell env vars. You can
 also enable Nix mode via defaults:
 
 ```bash
-defaults write bot.aren.mac aren.nixMode -bool true
+defaults write arent.mac aren.nixMode -bool true
 ```
 
 ### Config + state paths

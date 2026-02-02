@@ -56,7 +56,7 @@ aren browser --browser-profile work tabs
 
 ```bash
 aren browser tabs
-aren browser open https://docs.aren.engineer
+aren browser open https://docs.aren.ai
 aren browser focus <targetId>
 aren browser close <targetId>
 ```

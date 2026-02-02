@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-INSTALL_URL="${AREN_INSTALL_URL:-https://aren.engineer/install.sh}"
+INSTALL_URL="${AREN_INSTALL_URL:-https://aren.bot/install.sh}"
 DEFAULT_PACKAGE="aren"
 PACKAGE_NAME="${AREN_INSTALL_PACKAGE:-$DEFAULT_PACKAGE}"
 

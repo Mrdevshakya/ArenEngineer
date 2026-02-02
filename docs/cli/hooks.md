@@ -90,7 +90,7 @@ Details:
   Source: aren-bundled
   Path: /path/to/aren/hooks/bundled/session-memory/HOOK.md
   Handler: /path/to/aren/hooks/bundled/session-memory/handler.ts
-  Homepage: https://docs.aren.engineer/hooks#session-memory
+  Homepage: https://docs.aren.ai/hooks#session-memory
   Events: command:new
 
 Requirements:

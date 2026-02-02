@@ -22,7 +22,7 @@ The best way to help the project right now is by sending PRs.
 
 For threat model + hardening guidance (including `aren security audit --deep` and `--fix`), see:
 
-- `https://docs.aren.engineer/gateway/security`
+- `https://docs.aren.ai/gateway/security`
 
 ### Web Interface Safety
 

@@ -82,7 +82,7 @@ export function printWizardHeader(runtime: RuntimeEnv) {
     "██░███░██░▀▀░██░▄▄▄██░█░█░██░█████░████░▀▀░██░█░█░██",
     "██░▀▀▀░██░█████░▀▀▀██░██▄░██░▀▀▄██░▀▀░█░██░██▄▀▄▀▄██",
     "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀",
-    "                    🦞 AREN 🦞                     ",
+    "                  🦞 Aren 🦞                    ",
     " ",
   ].join("\n");
   runtime.log(header);
@@ -197,8 +197,8 @@ export function formatControlUiSshHint(params: {
     localUrl,
     authedUrl,
     "Docs:",
-    "https://docs.aren.engineer/gateway/remote",
-    "https://docs.aren.engineer/web/control-ui",
+    "https://docs.aren.ai/gateway/remote",
+    "https://docs.aren.ai/web/control-ui",
   ]
     .filter(Boolean)
     .join("\n");

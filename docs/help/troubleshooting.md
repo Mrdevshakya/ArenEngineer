@@ -39,13 +39,13 @@ Almost always a Node/npm PATH issue. Start here:
 Re-run the installer in verbose mode to see the full trace and npm output:
 
 ```bash
-curl -fsSL https://aren.engineer/install.sh | bash -s -- --verbose
+curl -fsSL https://aren.ai/install.sh | bash -s -- --verbose
 ```
 
 For beta installs:
 
 ```bash
-curl -fsSL https://aren.engineer/install.sh | bash -s -- --beta --verbose
+curl -fsSL https://aren.ai/install.sh | bash -s -- --beta --verbose
 ```
 
 You can also set `AREN_VERBOSE=1` instead of the flag.
@@ -60,10 +60,10 @@ You can also set `AREN_VERBOSE=1` instead of the flag.
 - [Gateway troubleshooting](/gateway/troubleshooting)
 - [Control UI](/web/control-ui#insecure-http)
 
-### `docs.aren.engineer` shows an SSL error (Comcast/Xfinity)
+### `docs.aren.ai` shows an SSL error (Comcast/Xfinity)
 
-Some Comcast/Xfinity connections block `docs.aren.engineer` via Xfinity Advanced Security.
-Disable Advanced Security or add `docs.aren.engineer` to the allowlist, then retry.
+Some Comcast/Xfinity connections block `docs.aren.ai` via Xfinity Advanced Security.
+Disable Advanced Security or add `docs.aren.ai` to the allowlist, then retry.
 
 - Xfinity Advanced Security help: https://www.xfinity.com/support/articles/using-xfinity-xfi-advanced-security
 - Quick sanity checks: try a mobile hotspot or VPN to confirm it’s ISP-level filtering

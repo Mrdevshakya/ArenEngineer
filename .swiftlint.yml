@@ -18,7 +18,7 @@ excluded:
   - coverage
   - "*.playground"
   # Generated (protocol-gen-swift.ts)
-  - apps/macos/Sources/arenProtocol/GatewayModels.swift
+  - apps/macos/Sources/ArenProtocol/GatewayModels.swift
 
 analyzer_rules:
   - unused_declaration

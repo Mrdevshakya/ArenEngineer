@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-INSTALL_URL="${AREN_INSTALL_URL:-https://aren.engineer/install.sh}"
+INSTALL_URL="${AREN_INSTALL_URL:-https://aren.bot/install.sh}"
 SMOKE_PREVIOUS_VERSION="${AREN_INSTALL_SMOKE_PREVIOUS:-}"
 SKIP_PREVIOUS="${AREN_INSTALL_SMOKE_SKIP_PREVIOUS:-0}"
 DEFAULT_PACKAGE="aren"
