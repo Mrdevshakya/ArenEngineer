@@ -49,5 +49,5 @@ Use one of these (all supported):
 
 The service target depends on OS:
 
-- macOS: LaunchAgent (`bot.molt.gateway` or `bot.molt.<profile>`; legacy `com.aren.*`)
+- macOS: LaunchAgent (`bot.aren.gateway` or `bot.aren.<profile>`; legacy `com.aren.*`)
 - Linux/WSL2: systemd user service (`aren-gateway[-<profile>].service`)

@@ -81,14 +81,14 @@ Use this if the gateway service keeps running but `aren` is missing.
 
 ### macOS (launchd)
 
-Default label is `bot.molt.gateway` (or `bot.molt.<profile>`; legacy `com.aren.*` may still exist):
+Default label is `bot.aren.gateway` (or `bot.aren.<profile>`; legacy `com.aren.*` may still exist):
 
 ```bash
-launchctl bootout gui/$UID/bot.molt.gateway
-rm -f ~/Library/LaunchAgents/bot.molt.gateway.plist
+launchctl bootout gui/$UID/bot.aren.gateway
+rm -f ~/Library/LaunchAgents/bot.aren.gateway.plist
 ```
 
-If you used a profile, replace the label and plist name with `bot.molt.<profile>`. Remove any legacy `com.aren.*` plists if present.
+If you used a profile, replace the label and plist name with `bot.aren.<profile>`. Remove any legacy `com.aren.*` plists if present.
 
 ### Linux (systemd user unit)
 

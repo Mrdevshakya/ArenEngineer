@@ -63,7 +63,7 @@ Supported if you isolate state + config and use unique ports. Full guide: [Multi
 
 Service names are profile-aware:
 
-- macOS: `bot.molt.<profile>` (legacy `com.aren.*` may still exist)
+- macOS: `bot.aren.<profile>` (legacy `com.aren.*` may still exist)
 - Linux: `aren-gateway-<profile>.service`
 - Windows: `Aren Gateway (<profile>)`
 
@@ -204,8 +204,8 @@ See also: [Presence](/concepts/presence) for how presence is produced/deduped an
   - StandardOut/Err: file paths or `syslog`
 - On failure, launchd restarts; fatal misconfig should keep exiting so the operator notices.
 - LaunchAgents are per-user and require a logged-in session; for headless setups use a custom LaunchDaemon (not shipped).
-  - `aren gateway install` writes `~/Library/LaunchAgents/bot.molt.gateway.plist`
-    (or `bot.molt.<profile>.plist`; legacy `com.aren.*` is cleaned up).
+  - `aren gateway install` writes `~/Library/LaunchAgents/bot.aren.gateway.plist`
+    (or `bot.aren.<profile>.plist`; legacy `com.aren.*` is cleaned up).
   - `aren doctor` audits the LaunchAgent config and can update it to current defaults.
 
 ## Gateway service management (CLI)
@@ -238,11 +238,11 @@ Notes:
 Bundled mac app:
 
 - Aren.app can bundle a Node-based gateway relay and install a per-user LaunchAgent labeled
-  `bot.molt.gateway` (or `bot.molt.<profile>`; legacy `com.aren.*` labels still unload cleanly).
-- To stop it cleanly, use `aren gateway stop` (or `launchctl bootout gui/$UID/bot.molt.gateway`).
-- To restart, use `aren gateway restart` (or `launchctl kickstart -k gui/$UID/bot.molt.gateway`).
+  `bot.aren.gateway` (or `bot.aren.<profile>`; legacy `com.aren.*` labels still unload cleanly).
+- To stop it cleanly, use `aren gateway stop` (or `launchctl bootout gui/$UID/bot.aren.gateway`).
+- To restart, use `aren gateway restart` (or `launchctl kickstart -k gui/$UID/bot.aren.gateway`).
   - `launchctl` only works if the LaunchAgent is installed; otherwise use `aren gateway install` first.
-  - Replace the label with `bot.molt.<profile>` when running a named profile.
+  - Replace the label with `bot.aren.<profile>` when running a named profile.
 
 ## Supervision (systemd user unit)
 

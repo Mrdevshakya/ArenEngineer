@@ -46,12 +46,12 @@ jobs:
                   "This would be better made as a third-party extension with our SDK that you maintain yourself. Docs: https://docs.aren.engineer/plugin.",
               },
               {
-                label: "r: moltbook",
+                label: "r: arenbook",
                 close: true,
                 lock: true,
                 lockReason: "off-topic",
                 message:
-                  "Aren is not affiliated with Moltbook, and issues related to Moltbook should not be submitted here.",
+                  "Aren is not affiliated with Arenbook, and issues related to Arenbook should not be submitted here.",
               },
             ];
 
@@ -61,14 +61,14 @@ jobs:
               const body = issue.body ?? "";
               const haystack = `${title}\n${body}`.toLowerCase();
               const hasLabel = (issue.labels ?? []).some((label) =>
-                typeof label === "string" ? label === "r: moltbook" : label?.name === "r: moltbook",
+                typeof label === "string" ? label === "r: arenbook" : label?.name === "r: arenbook",
               );
-              if (haystack.includes("moltbook") && !hasLabel) {
+              if (haystack.includes("arenbook") && !hasLabel) {
                 await github.rest.issues.addLabels({
                   owner: context.repo.owner,
                   repo: context.repo.repo,
                   issue_number: issue.number,
-                  labels: ["r: moltbook"],
+                  labels: ["r: arenbook"],
                 });
                 return;
               }

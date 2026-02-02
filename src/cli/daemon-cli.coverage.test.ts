@@ -153,7 +153,7 @@ describe("daemon-cli coverage", () => {
         AREN_CONFIG_PATH: "/tmp/aren-daemon-state/aren.json",
         AREN_GATEWAY_PORT: "19001",
       },
-      sourcePath: "/tmp/bot.molt.gateway.plist",
+      sourcePath: "/tmp/bot.aren.gateway.plist",
     });
 
     const { registerDaemonCli } = await import("./daemon-cli.js");

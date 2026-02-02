@@ -2415,7 +2415,7 @@ Quick setup (recommended):
 - Set a unique `gateway.port` in each profile config (or pass `--port` for manual runs).
 - Install a per-profile service: `aren --profile <name> gateway install`.
 
-Profiles also suffix service names (`bot.molt.<profile>`; legacy `com.aren.*`, `aren-gateway-<profile>.service`, `Aren Gateway (<profile>)`).
+Profiles also suffix service names (`bot.aren.<profile>`; legacy `com.aren.*`, `aren-gateway-<profile>.service`, `Aren Gateway (<profile>)`).
 Full guide: [Multiple gateways](/gateway/multiple-gateways).
 
 ### What does invalid handshake code 1008 mean

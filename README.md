@@ -468,9 +468,9 @@ Use these when you’re past the onboarding flow and want the deeper reference.
 
 - [docs.aren.engineer/gmail-pubsub](https://docs.aren.engineer/automation/gmail-pubsub)
 
-## Molty
+## Aren
 
-Aren was built for **Molty**, a space lobster AI assistant. 🦞
+Aren was built for **Aren**, a space lobster AI assistant. 🦞
 by Peter Steinberger and the community.
 
 - [aren.engineer](https://aren.engineer)

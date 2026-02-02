@@ -34,15 +34,15 @@ capabilities to the agent as a node.
 
 ## Launchd control
 
-The app manages a per‑user LaunchAgent labeled `bot.molt.gateway`
-(or `bot.molt.<profile>` when using `--profile`/`AREN_PROFILE`; legacy `com.aren.*` still unloads).
+The app manages a per‑user LaunchAgent labeled `bot.aren.gateway`
+(or `bot.aren.<profile>` when using `--profile`/`AREN_PROFILE`; legacy `com.aren.*` still unloads).
 
 ```bash
-launchctl kickstart -k gui/$UID/bot.molt.gateway
-launchctl bootout gui/$UID/bot.molt.gateway
+launchctl kickstart -k gui/$UID/bot.aren.gateway
+launchctl bootout gui/$UID/bot.aren.gateway
 ```
 
-Replace the label with `bot.molt.<profile>` when running a named profile.
+Replace the label with `bot.aren.<profile>` when running a named profile.
 
 If the LaunchAgent isn’t installed, enable it from the app or run
 `aren gateway install`.

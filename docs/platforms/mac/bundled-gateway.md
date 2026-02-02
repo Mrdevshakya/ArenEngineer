@@ -28,12 +28,12 @@ The macOS app’s **Install CLI** button runs the same flow via npm/pnpm (bun no
 
 Label:
 
-- `bot.molt.gateway` (or `bot.molt.<profile>`; legacy `com.aren.*` may remain)
+- `bot.aren.gateway` (or `bot.aren.<profile>`; legacy `com.aren.*` may remain)
 
 Plist location (per‑user):
 
-- `~/Library/LaunchAgents/bot.molt.gateway.plist`
-  (or `~/Library/LaunchAgents/bot.molt.<profile>.plist`)
+- `~/Library/LaunchAgents/bot.aren.gateway.plist`
+  (or `~/Library/LaunchAgents/bot.aren.<profile>.plist`)
 
 Manager:
 
