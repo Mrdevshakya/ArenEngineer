@@ -318,7 +318,7 @@ describe("mention helpers", () => {
     const regexes = buildMentionRegexes({
       messages: { groupChat: { mentionPatterns: ["\\baren\\b"] } },
     });
-    expect(matchesMentionPatterns("Aren: hi", regexes)).toBe(true);
+    expect(matchesMentionPatterns("AREN: hi", regexes)).toBe(true);
   });
 
   it("uses per-agent mention patterns when configured", () => {

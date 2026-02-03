@@ -112,7 +112,7 @@ export function renderApp(state: AppViewState) {
               <img src="/favicon.svg" alt="Aren" />
             </div>
             <div class="brand-text">
-              <div class="brand-title">Aren</div>
+              <div class="brand-title">AREN</div>
               <div class="brand-sub">Gateway Dashboard</div>
             </div>
           </div>

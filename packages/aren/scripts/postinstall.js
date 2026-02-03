@@ -1,1 +1,1 @@
-console.warn("aren is ready to use");
+console.warn("arenbot renamed -> aren");

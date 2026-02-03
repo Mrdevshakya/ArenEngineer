@@ -31,7 +31,7 @@ Core/
 apps/ios/*.xcodeproj/
 apps/ios/*.xcworkspace/
 apps/ios/.swiftpm/
-# vendor/
+vendor/
 apps/ios/Aren.xcodeproj/
 apps/ios/Aren.xcodeproj/**
 apps/macos/.build/**

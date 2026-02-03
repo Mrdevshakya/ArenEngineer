@@ -14,5 +14,5 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = "ARENNodeAndroid"
+rootProject.name = "ArenNodeAndroid"
 include(":app")

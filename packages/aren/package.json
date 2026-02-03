@@ -1,14 +1,14 @@
 {
-  "name": "aren",
+  "name": "arenbot",
   "version": "2026.1.27-beta.1",
-  "description": "Aren - AI-powered messaging platform",
+  "description": "Compatibility shim that forwards to aren",
   "bin": {
-    "aren": "./bin/aren.js"
+    "arenbot": "./bin/arenbot.js"
   },
   "type": "module",
   "exports": {
     ".": "./index.js",
-    "./cli-entry": "./bin/aren.js"
+    "./cli-entry": "./bin/arenbot.js"
   },
   "scripts": {
     "postinstall": "node ./scripts/postinstall.js"
