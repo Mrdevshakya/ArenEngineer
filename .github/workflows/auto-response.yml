@@ -46,7 +46,7 @@ jobs:
                   "This would be better made as a third-party extension with our SDK that you maintain yourself. Docs: https://docs.aren.ai/plugin.",
               },
               {
-                label: "r: Arenbook",
+                label: "r: arenbook",
                 close: true,
                 lock: true,
                 lockReason: "off-topic",
@@ -61,14 +61,14 @@ jobs:
               const body = issue.body ?? "";
               const haystack = `${title}\n${body}`.toLowerCase();
               const hasLabel = (issue.labels ?? []).some((label) =>
-                typeof label === "string" ? label === "r: Arenbook" : label?.name === "r: Arenbook",
+                typeof label === "string" ? label === "r: arenbook" : label?.name === "r: arenbook",
               );
-              if (haystack.includes("Arenbook") && !hasLabel) {
+              if (haystack.includes("arenbook") && !hasLabel) {
                 await github.rest.issues.addLabels({
                   owner: context.repo.owner,
                   repo: context.repo.repo,
                   issue_number: issue.number,
-                  labels: ["r: Arenbook"],
+                  labels: ["r: arenbook"],
                 });
                 return;
               }
